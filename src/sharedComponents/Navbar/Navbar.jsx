@@ -7,18 +7,18 @@ const Navbar = () => {
     const navigate = useNavigate();
     const navLinks = <>
         <NavLink className="" to="/">Home</NavLink>
-        <NavLink className="" to="/">Available Cars</NavLink>
-        <NavLink className="" to="/">Add Car</NavLink>
-        <NavLink className="" to="/">My Cars</NavLink>
-        <NavLink className="" to="/">My Bookings</NavLink>
-        <NavLink className="btn sm:btn-sm bg-primary text-white hover:bg-primary btn-xs" to="/">Log In</NavLink>
-        <NavLink className="btn sm:btn-sm bg-primary text-white hover:bg-primary btn-xs" to="/">Logout</NavLink>
+        <NavLink className="" to="/cars">Available Cars</NavLink>
+        <NavLink className="" to="/addCar">Add Car</NavLink>
+        <NavLink className="" to="/myCars">My Cars</NavLink>
+        <NavLink className="" to="/my Bookings">My Bookings</NavLink>
+        <NavLink className="btn sm:btn-sm bg-primary text-white hover:bg-primary btn-xs" to="/login">Log In</NavLink>
+        <button className="btn sm:btn-sm bg-primary text-white hover:bg-primary btn-xs" to="/">Logout</button>
     </>
     return (
-        <div className="navbar w-11/12 border rounded-full mx-auto px-3 py-0 my-2 sm:px-5 sm:my-5">
+        <div className="navbar w-11/12 mx-auto px-3 py-0 my-2 sm:px-5 sm:my-5">
             <div className="navbar-start">
                 <button onClick={() => navigate('/')} className="btn btn-ghost hover:bg-transparent text-xl px-0">
-                    <h2 className='text-2xl sm:text-4xl font-mono font-bold'><span className='text-primary'>R</span>entr</h2>
+                    <h2 className='text-3xl sm:text-4xl font-mono font-bold'><span className='text-primary'>R</span>entr</h2>
                     <img src={logo} className='w-3 sm:w-5 sm:mt-1' alt="" />
                 </button>
             </div>
@@ -27,7 +27,7 @@ const Navbar = () => {
                     {navLinks}
                 </ul>
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="px-0 btn btn-ghost lg:hidden">
+                    <div tabIndex={0} role="button" className="px-0 btn btn-ghost lg:hidden text-2xl">
                         < IoIosMenu />
                     </div>
                     <ul
