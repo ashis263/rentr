@@ -1,7 +1,11 @@
+import Navbar from "../sharedComponents/Navbar/Navbar";
+
 const MainLayout = () => {
     return (
-        <div>
-            mainlayout
+        <div className="max-w-screen-2xl text-textPrimary">
+            <header>
+                <Navbar></Navbar>
+            </header>
         </div>
     );
 }

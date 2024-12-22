@@ -8,6 +8,10 @@ export default {
     extend: {
       fontFamily: {
         outfit: "Outfit"
+      },
+      colors: {
+        primary: '#124e66',
+        textPrimary: '#2e3944'
       }
     },
   },
