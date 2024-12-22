@@ -1,18 +1,43 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png'
 import { IoIosMenu } from "react-icons/io";
+import Swal from 'sweetalert2';
+import { signOut } from 'firebase/auth';
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
 
 
 const Navbar = () => {
+    const { auth, user, setUser } = useContext(AuthContext);
     const navigate = useNavigate();
+    const handleLogout = () => {
+        signOut(auth);
+        setUser(null);
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "success",
+            title: "Logged out successfully"
+          });
+        navigate('/');
+    };
     const navLinks = <>
-        <NavLink className="" to="/">Home</NavLink>
-        <NavLink className="" to="/cars">Available Cars</NavLink>
-        <NavLink className="" to="/addCar">Add Car</NavLink>
-        <NavLink className="" to="/myCars">My Cars</NavLink>
-        <NavLink className="" to="/my Bookings">My Bookings</NavLink>
-        <NavLink className="btn sm:btn-sm bg-primary text-white hover:bg-primary btn-xs" to="/login">Log In</NavLink>
-        <button className="btn sm:btn-sm bg-primary text-white hover:bg-primary btn-xs" to="/">Logout</button>
+        <NavLink className={user ? "": ""} to="/">Home</NavLink>
+        <NavLink className={user ? "": ""} to="/cars">Available Cars</NavLink>
+        <NavLink className={user ? "": "hidden"} to="/addCar">Add Car</NavLink>
+        <NavLink className={user ? "": "hidden"} to="/myCars">My Cars</NavLink>
+        <NavLink className={user ? "": "hidden"} to="/my Bookings">My Bookings</NavLink>
+        <NavLink className={user ? "hidden": "btn sm:btn-sm bg-primary text-white hover:bg-primary btn-xs"} to="/login">Log In</NavLink>
+        <button onClick={handleLogout} className={user ? "btn sm:btn-sm bg-primary text-white hover:bg-primary btn-xs": "hidden"} to="/">Logout</button>
     </>
     return (
         <div className="navbar w-11/12 mx-auto px-3 py-0 my-2 sm:px-5 sm:my-5">

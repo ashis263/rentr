@@ -1,12 +1,89 @@
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { useState } from 'react';
 import Lottie from "lottie-react";
 import login from "../../assets/login.json";
+import Swal from 'sweetalert2';
+import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
+    const { user, setUser, setIsLoading, auth } = useContext(AuthContext);
     const [isPassShowing, setIsPassShowing] = useState(false);
     const handleShowPass = () => setIsPassShowing(!isPassShowing);
+    const provider = new GoogleAuthProvider();
+    const navigate = useNavigate();
+    if (user) { return <Navigate to="/" /> };
+    const handleGoogleClick = () => {
+        signInWithPopup(auth, provider)
+            .then(res => {
+                const user = res.user;
+                const current = { name: user.displayName, email: user.email, createdAt: user.metadata.creationTime, lastLogin: user.metadata.lastSignInTime, photo: user.photoURL };
+                fetch('https://chill-gamer-server-puce.vercel.app/users', {
+                    method: 'put',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(current)
+                })
+                setUser(res.user);
+                setIsLoading(false);
+                Toast.fire({
+                    icon: "success",
+                    title: "Signed in successfully"
+                });
+                navigate(location.state ? location.state : "/");
+            })
+            .catch(err => {
+                Toast.fire({
+                    icon: "error",
+                    title: err.code
+                });
+            })
+    };
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        signInWithEmailAndPassword(auth, email, password)
+            .then(res => {
+                const user = res.user;
+                const current = { name: user.displayName, email: user.email, createdAt: user.metadata.creationTime, lastLogin: user.metadata.lastSignInTime, photo: user.photoURL };
+                fetch('http://localhost:5000/users', {
+                    method: 'put',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(current)
+                })
+                setUser(res.user);
+                setIsLoading(false);
+                Toast.fire({
+                    icon: "success",
+                    title: "Signed in successfully"
+                });
+                e.target.reset();
+                navigate(location.state ? location.state : "/");
+            })
+            .catch(err => {
+                Toast.fire({
+                    icon: "error",
+                    title: err.code
+                });
+            })
+    }
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+    });
     return (
         <div className='flex flex-col sm:flex-row items-center justify-center w-11/12 mx-auto'>
             <div >
@@ -16,13 +93,13 @@ const Login = () => {
                 <div className="w-full">
                     <h1 className="text-4xl text-center sm:text-5xl lg:text-7xl sm:pt-0 font-bold text-primary">Login</h1>
                     <div className="w-11/12 mx-auto pt-5">
-                        <button className="btn w-full max-lg:btn-sm btn-outline text-gray-400 hover:bg-primary text-xl">
+                        <button onClick={handleGoogleClick} className="btn w-full max-lg:btn-sm btn-outline text-gray-400 hover:bg-primary text-xl">
                             <img className="w-8" src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="" />
                             Continue with Google
                         </button>
                         <p className='text-center pt-2 sm:p-5  text-gray-500'>or with email and password</p>
                     </div>
-                    <form className="w-11/12 mx-auto">
+                    <form onSubmit={handleFormSubmit} className="w-11/12 mx-auto">
                         <div className="form-control">
                             <label className="label">
                                 <span className={`label-text`}>Email</span>
@@ -34,7 +111,7 @@ const Login = () => {
                                 <span className={`label-text`}>Password</span>
                             </label>
                             <input type={!isPassShowing ? 'password' : 'text'} name="password" placeholder="Password" className="input max-lg:input-sm input-bordered" required />
-                            <div onClick={handleShowPass} className="absolute right-4 text-gray-300 top-10 text-2xl">
+                            <div onClick={handleShowPass} className="absolute right-4 text-gray-300 top-10 text-2xl lg:right-6 lg:top-12">
                                 {
                                     !isPassShowing ? <IoIosEye /> : <IoIosEyeOff />
                                 }
