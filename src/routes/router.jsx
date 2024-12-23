@@ -3,6 +3,8 @@ import MainLayout from '../layouts/MainLayout';
 import Login from '../pages/Login/Login';
 import Register from '../pages/Register/Register';
 import Home from '../pages/Home/Home';
+import PrivateRoute from './PrivateRoute';
+import AddCar from '../pages/AddCar/AddCar';
 
 const router = createBrowserRouter([
     {
@@ -20,6 +22,10 @@ const router = createBrowserRouter([
             {
                 path: 'register',
                 element: <Register></Register>
+            },
+            {
+                path: 'addCar',
+                element: <PrivateRoute><AddCar></AddCar></PrivateRoute>
             }
         ])
     }
