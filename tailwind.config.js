@@ -10,8 +10,11 @@ export default {
         outfit: "Outfit"
       },
       colors: {
-        primary: '#124e66',
+        primary: '#01949A',
         textPrimary: '#2e3944'
+      },
+      backgroundImage: {
+        banner: 'url("/src/assets/cars.png")'
       }
     },
   },

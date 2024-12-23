@@ -20,46 +20,48 @@ const Navbar = () => {
             timer: 2000,
             timerProgressBar: true,
             didOpen: (toast) => {
-              toast.onmouseenter = Swal.stopTimer;
-              toast.onmouseleave = Swal.resumeTimer;
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
             }
-          });
-          Toast.fire({
+        });
+        Toast.fire({
             icon: "success",
             title: "Logged out successfully"
-          });
+        });
         navigate('/');
     };
     const navLinks = <>
-        <NavLink className={user ? "": ""} to="/">Home</NavLink>
-        <NavLink className={user ? "": ""} to="/cars">Available Cars</NavLink>
-        <NavLink className={user ? "": "hidden"} to="/addCar">Add Car</NavLink>
-        <NavLink className={user ? "": "hidden"} to="/myCars">My Cars</NavLink>
-        <NavLink className={user ? "": "hidden"} to="/my Bookings">My Bookings</NavLink>
-        <NavLink className={user ? "hidden": "btn sm:btn-sm bg-primary text-white hover:bg-primary btn-xs"} to="/login">Log In</NavLink>
-        <button onClick={handleLogout} className={user ? "btn sm:btn-sm bg-primary text-white hover:bg-primary btn-xs": "hidden"} to="/">Logout</button>
+        <NavLink className={user ? "" : ""} to="/">Home</NavLink>
+        <NavLink className={user ? "" : ""} to="/cars">Available Cars</NavLink>
+        <NavLink className={user ? "" : "hidden"} to="/addCar">Add Car</NavLink>
+        <NavLink className={user ? "" : "hidden"} to="/myCars">My Cars</NavLink>
+        <NavLink className={user ? "" : "hidden"} to="/my Bookings">My Bookings</NavLink>
+        <NavLink className={user ? "hidden" : "btn sm:btn-sm bg-primary text-white hover:bg-primary btn-xs"} to="/login">Log In</NavLink>
+        <button onClick={handleLogout} className={user ? "btn sm:btn-sm bg-primary text-white hover:bg-primary btn-xs" : "hidden"} to="/">Logout</button>
     </>
     return (
-        <div className="navbar w-11/12 mx-auto px-3 py-0 my-2 sm:px-5 sm:my-5">
-            <div className="navbar-start">
-                <button onClick={() => navigate('/')} className="btn btn-ghost hover:bg-transparent text-xl px-0">
-                    <h2 className='text-3xl sm:text-4xl font-mono font-bold'><span className='text-primary'>R</span>entr</h2>
-                    <img src={logo} className='w-3 sm:w-5 sm:mt-1' alt="" />
-                </button>
-            </div>
-            <div className="navbar-end space-x-2">
-                <ul className="menu menu-horizontal px-1 gap-2 hidden lg:flex items-center">
-                    {navLinks}
-                </ul>
-                <div className="dropdown">
-                    <div tabIndex={0} role="button" className="px-0 btn btn-ghost lg:hidden text-2xl">
-                        < IoIosMenu />
-                    </div>
-                    <ul
-                        tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-28 p-2 shadow relative right-0 text-center">
+        <div className='fixed w-full bg-[#fffffff2] shadow-sm z-10'>
+            <div className="navbar w-11/12 mx-auto px-0 py-0 sm:my-1">
+                <div className="navbar-start">
+                    <button onClick={() => navigate('/')} className="btn btn-ghost hover:bg-transparent text-xl px-0">
+                        <h2 className='text-3xl sm:text-4xl font-mono font-bold'><span className='text-primary'>R</span>entr</h2>
+                        <img src={logo} className='w-3 sm:w-5 sm:mt-1' alt="" />
+                    </button>
+                </div>
+                <div className="navbar-end space-x-2">
+                    <ul className="p-0 menu menu-horizontal gap-2 hidden lg:flex items-center">
                         {navLinks}
                     </ul>
+                    <div className="dropdown">
+                        <div tabIndex={0} role="button" className="px-0 btn btn-ghost lg:hidden text-2xl">
+                            < IoIosMenu />
+                        </div>
+                        <ul
+                            tabIndex={0}
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-28 p-2 shadow relative right-0 text-center">
+                            {navLinks}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
