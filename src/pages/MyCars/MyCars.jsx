@@ -9,7 +9,7 @@ const MyCars = () => {
     const [sortBy, setSortBy] = useState('');
     const navigate = useNavigate();
     if (sortBy === 'price') {
-        setMyCars(myCars.sort((a, b) => b.dailyRentalPrice - a.dailyRentalPrice));
+        setMyCars(myCars.sort((a, b) => a.dailyRentalPrice - b.dailyRentalPrice));
     } else if (sortBy === 'date') {
         setMyCars(myCars.sort((a, b) => new Date(a.date) - new Date(b.date)));
     }
@@ -31,16 +31,16 @@ const MyCars = () => {
     }
 
     return (
-        <div className='w-11/12 mx-auto shadow-lg rounded-xl'>
+        <div className='w-11/12 mx-auto rounded-xl'>
             <h1 className="text-4xl text-center sm:text-5xl lg:text-7xl sm:pt-0 font-bold text-primary pb-2 sm:pb-5">My Cars</h1>
-            <div className="flex justify-end mr-10">
+            <div className="flex justify-end mr-10 shadow-sm">
                 <select onChange={(e) => setSortBy(e.target.value)} className={`border rounded-lg p-2 border-gray-200 select-sm text-xs mb-2 text-center`} name="availability" required>
                     <option disabled selected>Sort By</option>
                     <option value="date">Date</option>
                     <option value="price">Price</option>
                 </select>
             </div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto shadow-lg">
                 <table className="table">
                     {/* head */}
                     <thead>

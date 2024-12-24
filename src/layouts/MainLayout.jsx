@@ -10,7 +10,7 @@ const MainLayout = () => {
     const { isLoading } = useContext(AuthContext);
     if (isLoading) {
         return <div className="w-lvw h-lvh flex items-center justify-center">
-            <Lottie className='w-40' animationData={loader} loop={true} />
+            <Lottie className='w-20' animationData={loader} loop={true} />
         </div>
     }
     return (

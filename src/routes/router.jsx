@@ -6,6 +6,7 @@ import Home from '../pages/Home/Home';
 import PrivateRoute from './PrivateRoute';
 import AddCar from '../pages/AddCar/AddCar';
 import MyCars from '../pages/MyCars/MyCars';
+import AvailableCars from '../pages/AvailableCars/AvailableCars';
 
 const router = createBrowserRouter([
     {
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
             {
                 path: 'myCars',
                 element: <PrivateRoute><MyCars>Z</MyCars></PrivateRoute>
+            },
+            {
+                path: '/cars',
+                element: <AvailableCars></AvailableCars>,
+                loader: () => fetch('http://localhost:5000/cars')
             }
         ])
     }

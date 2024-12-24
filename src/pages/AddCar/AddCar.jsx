@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 
 
 const AddCar = () => {
-    const { user, myCars, setMyCars } = useContext(AuthContext);
+    const { user, myCars, setMyCars,isCarModified, setIsCarModified } = useContext(AuthContext);
     const [uploadedFile, setUploadedFile] = useState([]);
     const [uploadedFileError, setUploadedFileError] = useState('');
     const handleDrop = (acceptedFile) => {
@@ -50,6 +50,7 @@ const AddCar = () => {
                 }
                 e.target.reset();
                 setUploadedFile([]);
+                setIsCarModified(!isCarModified);
             })
             .catch(err => {
                 Toast.fire({
