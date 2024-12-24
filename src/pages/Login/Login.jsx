@@ -9,7 +9,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
-    const { user, setUser, setIsLoading, auth } = useContext(AuthContext);
+    const { user, setUser, auth } = useContext(AuthContext);
     const [isPassShowing, setIsPassShowing] = useState(false);
     const handleShowPass = () => setIsPassShowing(!isPassShowing);
     const provider = new GoogleAuthProvider();
@@ -28,7 +28,6 @@ const Login = () => {
                     body: JSON.stringify(current)
                 })
                 setUser(res.user);
-                setIsLoading(false);
                 Toast.fire({
                     icon: "success",
                     title: "Signed in successfully"
@@ -58,7 +57,6 @@ const Login = () => {
                     body: JSON.stringify(current)
                 })
                 setUser(res.user);
-                setIsLoading(false);
                 Toast.fire({
                     icon: "success",
                     title: "Signed in successfully"

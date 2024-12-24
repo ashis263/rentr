@@ -35,7 +35,6 @@ const AddCar = () => {
                 photo: user.photoURL
 
             }
-            console.log(date);
             setMyCars([...myCars, car])
             axios.post('http://localhost:5000/cars', car, {
                 headers: {
@@ -49,8 +48,8 @@ const AddCar = () => {
                         title: "Car Added successfully"
                     });
                 }
-                // e.target.reset();
-                // setUploadedFile([]);
+                e.target.reset();
+                setUploadedFile([]);
             })
             .catch(err => {
                 Toast.fire({
@@ -91,7 +90,7 @@ const AddCar = () => {
                     <label className="label">
                         <span className={`label-text`}>Availablity</span>
                     </label>
-                    <select className={`border rounded-lg p-2 border-gray-200`} name="availability" required>
+                    <select className={`max-sm:select-sm border rounded-lg p-2 border-gray-200`} name="availability" required>
                         <option></option>
                         <option value="true">Available</option>
                         <option value="false">Not Available</option>

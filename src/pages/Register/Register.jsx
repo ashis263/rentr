@@ -9,7 +9,7 @@ import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, up
 
 
 const Register = () => {
-    const { user, setUser, setIsLoading, auth } = useContext(AuthContext);
+    const { user, setUser, auth } = useContext(AuthContext);
     const [ error, setError ] = useState('');
     const [isPassShowing, setIsPassShowing] = useState(false);
     const handleShowPass = () => setIsPassShowing(!isPassShowing);
@@ -29,7 +29,6 @@ const Register = () => {
                     body: JSON.stringify(current)
                 })
                 setUser(res.user);
-                setIsLoading(false);
                 Toast.fire({
                     icon: "success",
                     title: "Signed in successfully"

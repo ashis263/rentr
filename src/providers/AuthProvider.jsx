@@ -12,16 +12,18 @@ const AuthProvider = ({ children }) => {
     const [ user, setUser ] = useState(null);
     const [ isLoading, setIsLoading ] = useState(true);
     const [ myCars, setMyCars ] = useState([]);
+    const [ isCarModified, setIsCarModified ] = useState(false)
 
     const auth = getAuth(app);
     const authData = {
         user,
         setUser,
         isLoading,
-        setIsLoading,
         auth,
         myCars,
-        setMyCars
+        setMyCars,
+        isCarModified,
+        setIsCarModified
     }
     
     useEffect(() => {
@@ -43,7 +45,7 @@ const AuthProvider = ({ children }) => {
             return () => unsubscribe();
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [isCarModified]);
     return (
         <div>
             <AuthContext.Provider value={ authData }>
