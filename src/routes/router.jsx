@@ -5,6 +5,7 @@ import Register from '../pages/Register/Register';
 import Home from '../pages/Home/Home';
 import PrivateRoute from './PrivateRoute';
 import AddCar from '../pages/AddCar/AddCar';
+import MyCars from '../pages/MyCars/MyCars';
 
 const router = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path: 'addCar',
                 element: <PrivateRoute><AddCar></AddCar></PrivateRoute>
+            },
+            {
+                path: 'myCars',
+                element: <PrivateRoute><MyCars>Z</MyCars></PrivateRoute>
             }
         ])
     }

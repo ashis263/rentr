@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 
 
 const AddCar = () => {
-    const { user } = useContext(AuthContext);
+    const { user, myCars, setMyCars } = useContext(AuthContext);
     const [uploadedFile, setUploadedFile] = useState([]);
     const [uploadedFileError, setUploadedFileError] = useState('');
     const handleDrop = (acceptedFile) => {
@@ -29,12 +29,14 @@ const AddCar = () => {
             const car = {
                 ...data,
                 image: uploadedFile[0],
-                date,
-                user: {
-                    name: user.displayName, email: user.email, photo: user.photoURL
-                }
+                date: date.toISOString(),
+                user: user.displayName, 
+                email: user.email, 
+                photo: user.photoURL
 
             }
+            console.log(date);
+            setMyCars([...myCars, car])
             axios.post('http://localhost:5000/cars', car, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
@@ -47,7 +49,8 @@ const AddCar = () => {
                         title: "Car Added successfully"
                     });
                 }
-                e.target.reset();
+                // e.target.reset();
+                // setUploadedFile([]);
             })
             .catch(err => {
                 Toast.fire({
@@ -69,7 +72,7 @@ const AddCar = () => {
             }
         });
     return (
-        <div className="sm:w-2/3 mx-auto drop-shadow">
+        <div className="sm:w-2/3 mx-auto shadow-lg rounded-xl p-5">
             <h1 className="text-4xl text-center sm:text-5xl lg:text-7xl sm:pt-0 font-bold text-primary">Add Car</h1>
             <form onSubmit={handleFormSubmit} className="w-11/12 mx-auto">
                 <div className="form-control">
@@ -82,13 +85,13 @@ const AddCar = () => {
                     <label className="label">
                         <span className={`label-text`}>Daily Rental Price</span>
                     </label>
-                    <input type="text" name="dailyRentalPrice" placeholder="Daily Rental Price" className="input max-lg:input-sm input-bordered" required />
+                    <input type="number" name="dailyRentalPrice" placeholder="Daily Rental Price" className="input max-lg:input-sm input-bordered" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className={`label-text`}>Availablity</span>
                     </label>
-                    <select className={`border rounded-lg p-2 border-gray-200`} name="availablity" required>
+                    <select className={`border rounded-lg p-2 border-gray-200`} name="availability" required>
                         <option></option>
                         <option value="true">Available</option>
                         <option value="false">Not Available</option>

@@ -21,7 +21,7 @@ const Register = () => {
             .then(res => {
                 const user = res.user;
                 const current = { name: user.displayName, email: user.email, createdAt: user.metadata.creationTime, lastLogin: user.metadata.lastSignInTime, photo: user.photoURL };
-                fetch('https://chill-gamer-server-puce.vercel.app/users', {
+                fetch('http://localhost:5000/users', {
                     method: 'put',
                     headers: {
                         'content-type': 'application/json'
