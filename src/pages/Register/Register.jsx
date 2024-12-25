@@ -15,7 +15,7 @@ const Register = () => {
     const handleShowPass = () => setIsPassShowing(!isPassShowing);
     const provider = new GoogleAuthProvider();
     const navigate = useNavigate();
-    if (user) { return <Navigate to="/" /> };
+    if (user) { return <Navigate to={location.state ? location.state : "/"} /> };
     const handleGoogleClick = () => {
         signInWithPopup(auth, provider)
             .then(res => {

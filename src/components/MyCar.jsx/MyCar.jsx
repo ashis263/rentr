@@ -123,7 +123,7 @@ const UserCar = ({ car }) => {
                 </div>
             </td>
             <td>{car.carModel}</td>
-            <td>{car.dailyRentalPrice}</td>
+            <td>{car.dailyRentalPrice} $</td>
             <td>{car.availability ? 'Available' : 'Not available'}</td>
             <td className="max-sm:hidden">{car.date.split('T')[0]}</td>
             <th className='text-center sm:space-x-2'>
