@@ -19,6 +19,7 @@ const AuthProvider = ({ children }) => {
         user,
         setUser,
         isLoading,
+        setIsLoading,
         auth,
         myCars,
         setMyCars,
@@ -31,13 +32,7 @@ const AuthProvider = ({ children }) => {
             if (user) {
                 setUser(user);
                 axios.post('http://localhost:5000/auth', { name: user.displayName, email: user.email}, { withCredentials: true});
-                axios.get(`http://localhost:5000/userCars/?email=${user.email}`, {
-                    withCredentials: true
-                })
-                .then(res => {
-                    setMyCars(res.data)
-                    setIsLoading(false);
-                });
+                setIsLoading(false);
             }else{
                 axios.post('http://localhost:5000/logOut', {},  { withCredentials: true})
                 setIsLoading(false);
@@ -45,7 +40,7 @@ const AuthProvider = ({ children }) => {
             return () => unsubscribe();
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isCarModified]);
+    }, []);
     return (
         <div>
             <AuthContext.Provider value={ authData }>

@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { signOut } from 'firebase/auth';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import '../Navbar/navbar.css'
 
 
 const Navbar = () => {
