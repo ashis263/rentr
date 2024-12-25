@@ -2,3 +2,6 @@ a.active{
     color: #01949A;
     font-weight: bolder;
 }
+.log.active{
+    color: white
+}

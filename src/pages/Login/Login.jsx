@@ -33,7 +33,6 @@ const Login = () => {
                     icon: "success",
                     title: "Signed in successfully"
                 });
-                console.log(location.state);
                 navigate(location.state ? location.state : "/");
             })
             .catch(err => {

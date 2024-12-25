@@ -61,7 +61,7 @@ const AvailableCars = () => {
                         ||
                         <table className="table">
                             <thead>
-                                <tr className='text-center'>
+                                <tr className="font-bold bg-[#01959a42] text-center">
                                     <th className="max-sm:hidden">Image</th>
                                     <th>Model</th>
                                     <th>Rent/day</th>
@@ -71,7 +71,7 @@ const AvailableCars = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {filtered.map(car => <TableCar key={car._id} car={car}></TableCar>)}
+                                {filtered.map((car, index) => <TableCar key={car._id} index={index} car={car}></TableCar>)}
                             </tbody>
                         </table>
                     }

@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 
-const TableCar = ( { car }) => {
+const TableCar = ( { car, index }) => {
     const { _id, carImage, carModel, availability, dailyRentalPrice, location } = car;
     return (
-        <tr className='text-center shadow mt-5 sm:mt-10'>
+        <tr className={`${index%2===0 ? 'text-center shadow mt-5 hover:bg-slate-200 sm:mt-10' : 'text-center shadow mt-5 hover:bg-slate-200 sm:mt-10 bg-gray-100'}`}>
             <td className='flex justify-center max-sm:hidden'>
                 <div className="flex items-center gap-3">
                     <div className="avatar">
@@ -30,7 +30,9 @@ const TableCar = ( { car }) => {
 
 
 TableCar.propTypes = {
-    car: PropTypes.object.isRequired
+    car: PropTypes.object.isRequired,
+    index: PropTypes.number.isRequired
+    
 };
 
 

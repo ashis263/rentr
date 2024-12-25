@@ -57,7 +57,7 @@ const MyCars = () => {
                 <table className="table">
                     {/* head */}
                     <thead>
-                        <tr className='text-center'>
+                        <tr className="font-bold bg-[#01959a42] text-center">
                             <th className="max-sm:hidden">Image</th>
                             <th>Model</th>
                             <th>Rent/day</th>
@@ -68,7 +68,7 @@ const MyCars = () => {
                     </thead>
                     <tbody>
                         {
-                            myCars.length !== 0 && myCars.map(car => <UserCar key={car._id} car={car}></UserCar>)
+                            myCars.length !== 0 && myCars.map((car, index) => <UserCar key={car._id} index={index} car={car}></UserCar>)
                         }
                     </tbody>
                 </table>

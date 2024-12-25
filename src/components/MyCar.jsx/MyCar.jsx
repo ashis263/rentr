@@ -10,7 +10,7 @@ import 'react-responsive-modal/styles.css';
 import { useDropzone } from 'react-dropzone';
 import { TbDragDrop } from "react-icons/tb";
 
-const UserCar = ({ car }) => {
+const UserCar = ({ car, index }) => {
     const { myCars, setMyCars, isCarModified, setIsCarModified } = useContext(AuthContext);
     const [uploadedFile, setUploadedFile] = useState([]);
     const [isModalOpened, SetIsModalOpened] = useState(false);
@@ -110,7 +110,7 @@ const UserCar = ({ car }) => {
             })
     }
     return (
-        <tr className='text-center'>
+        <tr className={`${index%2===0 ? 'hover:bg-slate-200 text-center ' : 'hover:bg-slate-200 text-center bg-gray-100'}`}>
             <td className='flex justify-center max-sm:hidden'>
                 <div className="flex items-center gap-3">
                     <div className="avatar">
@@ -217,7 +217,8 @@ const UserCar = ({ car }) => {
 
 
 UserCar.propTypes = {
-    car: PropTypes.object.isRequired
+    car: PropTypes.object.isRequired,
+        index: PropTypes.number.isRequired
 };
 
 

@@ -36,8 +36,8 @@ const Navbar = () => {
         <NavLink className={user ? "" : ""} to="/cars">Available Cars</NavLink>
         <NavLink className={user ? "" : "hidden"} to="/addCar">Add Car</NavLink>
         <NavLink className={user ? "" : "hidden"} to="/myCars">My Cars</NavLink>
-        <NavLink className={user ? "" : "hidden"} to="/my Bookings">My Bookings</NavLink>
-        <NavLink className={user ? "hidden" : "btn sm:btn-sm bg-primary text-white hover:bg-primary btn-xs"} to="/login">Log In</NavLink>
+        <NavLink className={user ? "" : "hidden"} to="/myBookings">My Bookings</NavLink>
+        <NavLink className={user ? "hidden log" : "log btn sm:btn-sm bg-primary text-white hover:bg-primary btn-xs"} to="/login">Log In</NavLink>
         <button onClick={handleLogout} className={user ? "btn sm:btn-sm bg-primary text-white hover:bg-primary btn-xs" : "hidden"} to="/">Logout</button>
     </>
     return (
