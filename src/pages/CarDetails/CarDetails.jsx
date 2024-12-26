@@ -3,11 +3,13 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import 'animate.css';
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const CarDetails = () => {
     const { user } = useContext(AuthContext);
     const car = useLoaderData();
-    const { _id, ...data } = car;
+    const { _id, carImage: img, ...data } = car;
     const [ carToRender, setCarToRender ] = useState(car);
     const { carImage, carModel, availability, dailyRentalPrice, description, features, location, vehicleRegistrationNumber, bookingCount } = carToRender;
     const date = new Date();
@@ -19,9 +21,9 @@ const CarDetails = () => {
         findingKey: _id + user.email
     }
     const handleBook = () => {
-        axios.put('https://rentr-server.vercel.app/bookings', booking)
+        axios.post('https://rentr-server.vercel.app/bookings', booking)
             .then(res => {
-                if (res.data.upsertedCount) {
+                if (res.data.insertedId) {
                     carToRender.bookingCount = bookingCount + 1;
                     setCarToRender({...carToRender});
                     Swal.fire({
@@ -59,7 +61,11 @@ const CarDetails = () => {
         }
     });
     return (
-        <div className="w-11/12 sm:w-2/3 mx-auto shadow-xl p-5 rounded-xl">
+        <div className="animate__animated animate__fadeIn w-11/12 sm:w-2/3 mx-auto shadow-xl p-5 rounded-xl">
+            <HelmetProvider>
+                <Helmet>
+                    <title>Rentr | {carModel}</title>
+                </Helmet>
             <h1 className="text-3xl text-center sm:text-4xl lg:text-5xl sm:pt-0 font-bold text-primary pb-2 sm:pb-5">{carModel}</h1>
             <div className='flex gap-5'>
                 <div className='flex flex-col items-center w-2/5 drop-shadow-2xl'>
@@ -75,6 +81,7 @@ const CarDetails = () => {
                 </div>
             </div>
             <button onClick={handleBook} to={`/car/${_id}`} className="btn btn-outline w-full text-primary px-10 my-5 max-sm:btn-sm sm:text-lg text-xs">Book Now</button>
+            </HelmetProvider>
         </div>
     );
 }

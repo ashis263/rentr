@@ -6,6 +6,8 @@ import login from "../../assets/login.json";
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../providers/AuthProvider';
 import { createUserWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import 'animate.css';
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 
 const Register = () => {
@@ -77,7 +79,11 @@ const Register = () => {
         }
     });
     return (
-        <div className='flex flex-col sm:flex-row-reverse items-center justify-center w-11/12 mx-auto'>
+        <div className='animate__animated animate__fadeIn flex flex-col sm:flex-row-reverse items-center justify-center w-11/12 mx-auto'>
+            <HelmetProvider>
+                <Helmet>
+                    <title>Rentr | Register</title>
+                </Helmet>
             <div >
                 <Lottie className='sm:block w-4/5 mx-auto sm:w-72 lg:w-96 max-sm:mb-5' animationData={login} loop={true} />
             </div>
@@ -122,6 +128,7 @@ const Register = () => {
                     </div>
                 </form>
             </div>
+            </HelmetProvider>
         </div>
     );
 }

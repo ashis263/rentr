@@ -82,8 +82,6 @@ const UserCar = ({ car, index }) => {
             photo: car.photo,
 
         }
-        setMyCars([...carsWithoutCurrent, updatedCar]);
-        setIsCarModified(!isCarModified)
         axios.patch(`https://rentr-server.vercel.app/cars`, updatedCar, {
             headers: {
                 'Content-Type': 'multipart/form-data',
@@ -91,11 +89,13 @@ const UserCar = ({ car, index }) => {
         })
             .then(res => {
                 if (res.data.modifiedCount) {
+                    setIsCarModified(!isCarModified)
+                    setMyCars([...carsWithoutCurrent, updatedCar]);
                     Toast.fire({
                         icon: "success",
                         title: "Car updated successfully"
                     });
-                }else{
+                } else {
                     Toast.fire({
                         icon: "warning",
                         title: "Please change some data to update!"
@@ -110,7 +110,7 @@ const UserCar = ({ car, index }) => {
             })
     }
     return (
-        <tr className={`${index%2===0 ? 'hover:bg-slate-200 text-center ' : 'hover:bg-slate-200 text-center bg-gray-100'}`}>
+        <tr className={`${index % 2 === 0 ? 'hover:bg-slate-200 text-center ' : 'hover:bg-slate-200 text-center bg-gray-100'}`}>
             <td className='flex justify-center max-sm:hidden'>
                 <div className="flex items-center gap-3">
                     <div className="avatar">
@@ -218,7 +218,7 @@ const UserCar = ({ car, index }) => {
 
 UserCar.propTypes = {
     car: PropTypes.object.isRequired,
-        index: PropTypes.number.isRequired
+    index: PropTypes.number.isRequired
 };
 
 

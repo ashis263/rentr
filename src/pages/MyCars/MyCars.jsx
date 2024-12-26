@@ -4,6 +4,8 @@ import UserCar from "../../components/MyCar.jsx/MyCar";
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import 'animate.css';
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const MyCars = () => {
     const { user, myCars, setMyCars, isCarModified } = useContext(AuthContext);
@@ -41,7 +43,11 @@ const MyCars = () => {
             })
     }
     return (
-        <div className='w-11/12 mx-auto rounded-xl'>
+        <div className='animate__animated animate__fadeIn w-11/12 mx-auto rounded-xl'>
+            <HelmetProvider>
+                <Helmet>
+                    <title>Rentr | My Cars</title>
+                </Helmet>
             <h1 className="text-4xl text-center sm:text-5xl lg:text-7xl sm:pt-0 font-bold text-primary pb-2 sm:pb-5">My Cars</h1>
             <div className="flex justify-end mr-10 shadow-sm">
                 <select onChange={(e) => setSortBy(e.target.value)} className={`border rounded-lg p-2 border-gray-200 select-sm text-xs mb-2 text-center`} name="availability" required>
@@ -70,6 +76,7 @@ const MyCars = () => {
                     </tbody>
                 </table>
             </div>
+            </HelmetProvider>
         </div>
     );
 }

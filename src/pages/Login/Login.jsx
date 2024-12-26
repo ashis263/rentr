@@ -8,6 +8,8 @@ import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import axios from 'axios';
+import 'animate.css';
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const Login = () => {
     const { user, setUser, auth } = useContext(AuthContext);
@@ -89,7 +91,11 @@ const Login = () => {
         }
     });
     return (
-        <div className='flex flex-col sm:flex-row items-center justify-center w-11/12 mx-auto'>
+        <div className='animate__animated animate__fadeIn flex flex-col sm:flex-row items-center justify-center w-11/12 mx-auto'>
+            <HelmetProvider>
+                <Helmet>
+                    <title>Rentr | Login</title>
+                </Helmet>
             <div >
                 <Lottie className='sm:block w-4/5 mx-auto sm:w-72 lg:w-96 max-sm:mb-5 sm:mt-10 lg:-ml-10' animationData={login} loop={true} />
             </div>
@@ -130,6 +136,7 @@ const Login = () => {
                     </form>
                 </div>
             </div>
+            </HelmetProvider>
         </div>
     );
 }

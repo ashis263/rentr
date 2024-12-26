@@ -5,6 +5,8 @@ import { useState } from "react";
 import Car from "../../components/Car/Car";
 import TableCar from "../../components/TableCar/TableCar";
 import { useLoaderData } from "react-router-dom";
+import 'animate.css';
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 
 
@@ -27,7 +29,11 @@ const AvailableCars = () => {
         filtered.sort((a, b) => new Date(a.date) - new Date(b.date))
     }
     return (
-        <div className="w-11/12 mx-auto">
+        <div className="animate__animated animate__fadeIn w-11/12 mx-auto">
+            <HelmetProvider>
+                <Helmet>
+                    <title>Rentr | Cars</title>
+                </Helmet>
             <div className="mb-5 sm:mb-15">
                 <h1 className="text-4xl text-center sm:text-5xl lg:text-7xl sm:pt-0 font-bold text-primary pb-2 sm:pb-5">Available Cars</h1>
                 <div className="flex justify-between items-center shadow-sm pb-5">
@@ -77,6 +83,7 @@ const AvailableCars = () => {
                     }
                 </div>
             </div>
+            </HelmetProvider>
         </div >
     );
 }
