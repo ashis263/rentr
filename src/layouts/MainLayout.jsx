@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import Lottie from "lottie-react";
 import loader from ".././assets/loader.json";
+import Footer from "../sharedComponents/Footer/Footer";
 
 const MainLayout = () => {
     const location = useLocation();
@@ -21,6 +22,9 @@ const MainLayout = () => {
             <main className={location.pathname === '/' ? 'sm:pt-5 lg:pt-5' : "pt-20 sm:pt-24 lg:pt-28"}>
                 <Outlet></Outlet>
             </main>
+            <footer>
+                <Footer></Footer>
+            </footer>
         </div>
     );
 }
