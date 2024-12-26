@@ -24,14 +24,14 @@ const Login = () => {
             .then(res => {
                 const user = res.user;
                 const current = { name: user.displayName, email: user.email, createdAt: user.metadata.creationTime, lastLogin: user.metadata.lastSignInTime, photo: user.photoURL };
-                fetch('http://localhost:5000/users', {
+                fetch('https://rentr-server.vercel.app/users', {
                     method: 'put',
                     headers: {
                         'content-type': 'application/json'
                     },
                     body: JSON.stringify(current)
                 })
-                axios.post('http://localhost:5000/auth', { name: user.displayName, email: user.email}, { withCredentials: true});
+                axios.post('https://rentr-server.vercel.app/auth', { name: user.displayName, email: user.email}, { withCredentials: true});
                 setUser(res.user);
                 Toast.fire({
                     icon: "success",
@@ -54,14 +54,14 @@ const Login = () => {
             .then(res => {
                 const user = res.user;
                 const current = { name: user.displayName, email: user.email, createdAt: user.metadata.creationTime, lastLogin: user.metadata.lastSignInTime, photo: user.photoURL };
-                fetch('http://localhost:5000/users', {
+                fetch('https://rentr-server.vercel.app/users', {
                     method: 'put',
                     headers: {
                         'content-type': 'application/json'
                     },
                     body: JSON.stringify(current)
                 })
-                axios.post('http://localhost:5000/auth', { name: user.displayName, email: user.email}, { withCredentials: true});
+                axios.post('https://rentr-server.vercel.app/auth', { name: user.displayName, email: user.email}, { withCredentials: true});
                 setUser(res.user);
                 Toast.fire({
                     icon: "success",

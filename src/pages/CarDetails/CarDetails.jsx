@@ -19,7 +19,7 @@ const CarDetails = () => {
         findingKey: _id + user.email
     }
     const handleBook = () => {
-        axios.put('http://localhost:5000/bookings', booking)
+        axios.put('https://rentr-server.vercel.app/bookings', booking)
             .then(res => {
                 if (res.data.upsertedCount) {
                     carToRender.bookingCount = bookingCount + 1;

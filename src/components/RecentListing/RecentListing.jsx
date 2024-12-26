@@ -10,7 +10,7 @@ const RecentListing = () => {
     const { isCarModified } = useContext(AuthContext)
     const [recent, setRecent] = useState([]);
     useEffect((() => {
-        axios.get('http://localhost:5000/cars/recent')
+        axios.get('https://rentr-server.vercel.app/cars/recent')
             .then(res => setRecent(res.data))
     }), [isCarModified]);
     return (

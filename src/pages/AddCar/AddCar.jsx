@@ -36,7 +36,7 @@ const AddCar = () => {
 
             }
             setMyCars([...myCars, car])
-            axios.post('http://localhost:5000/cars', car, {
+            axios.post('https://rentr-server.vercel.app/cars', car, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 }

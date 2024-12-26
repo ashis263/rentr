@@ -38,7 +38,7 @@ const Register = () => {
                             navigate("/login");
                             const user = res.user;
                             const current = { name: user.displayName, email: user.email, createdAt: user.metadata.creationTime, lastLogin: user.metadata.lastSignInTime, photo: user.photoURL };
-                            fetch('http://localhost:5000/users', {
+                            fetch('https://rentr-server.vercel.app/users', {
                                 method: 'put',
                                 headers: {
                                     'content-type': 'application/json'

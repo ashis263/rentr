@@ -35,7 +35,7 @@ const UserCar = ({ car, index }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/cars/?id=${car._id}`)
+                axios.delete(`https://rentr-server.vercel.app/cars/?id=${car._id}`)
                     .then(res => {
                         if (res.data.deletedCount) {
                             setMyCars(carsWithoutCurrent)
@@ -84,7 +84,7 @@ const UserCar = ({ car, index }) => {
         }
         setMyCars([...carsWithoutCurrent, updatedCar]);
         setIsCarModified(!isCarModified)
-        axios.patch(`http://localhost:5000/cars`, updatedCar, {
+        axios.patch(`https://rentr-server.vercel.app/cars`, updatedCar, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             }

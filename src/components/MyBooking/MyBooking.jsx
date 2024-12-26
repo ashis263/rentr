@@ -38,7 +38,7 @@ const MyBooking = ({ booking: current, index }) => {
                 cancelButtonText: "No"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    axios.patch(`http://localhost:5000/bookings/availability/?id=${booking._id}`, { availability: "Cancelled" })
+                    axios.patch(`https://rentr-server.vercel.app/bookings/availability/?id=${booking._id}`, { availability: "Cancelled" })
                         .then(res => {
                             if (res.data.modifiedCount) {
                                 const { availability, ...data } = booking;
@@ -77,7 +77,7 @@ const MyBooking = ({ booking: current, index }) => {
         const difference = Math.abs(momentDate1.diff(momentDate2, 'days'));
         const newPrice = booking.dailyRentalPrice * difference;
         console.log(difference);
-        axios.patch(`http://localhost:5000/bookings/date/?id=${booking._id}`, { date: start + ' to ' + end, dailyRentalPrice: newPrice })
+        axios.patch(`https://rentr-server.vercel.app/bookings/date/?id=${booking._id}`, { date: start + ' to ' + end, dailyRentalPrice: newPrice })
             .then(res => {
                 console.log(res.data);
                 if (res.data.modifiedCount) {

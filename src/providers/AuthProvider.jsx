@@ -34,7 +34,7 @@ const AuthProvider = ({ children }) => {
                 setIsLoading(false);
             }else{
                 setUser(null);
-                axios.post('http://localhost:5000/logOut', {},  { withCredentials: true})
+                axios.post('https://rentr-server.vercel.app/logOut', {},  { withCredentials: true})
                 setIsLoading(false);
             }
             return () => unsubscribe();
