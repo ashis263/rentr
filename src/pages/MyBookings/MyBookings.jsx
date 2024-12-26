@@ -1,8 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from '../../providers/AuthProvider';
-import Lottie from "lottie-react";
 import MyBooking from "../../components/MyBooking/MyBooking";
-import loader from '../../assets/loader.json';
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const MyBookings = () => {
@@ -38,11 +36,6 @@ const MyBookings = () => {
                         }
                     </tbody>
                 </table>
-                {
-                    myBookings.length === 0 && <div className="w-full flex items-center justify-center">
-                        <Lottie className='w-10' animationData={loader} loop={true} />
-                    </div>
-                }
             </div>
         </div>
     );

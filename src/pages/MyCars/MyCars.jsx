@@ -3,8 +3,6 @@ import { AuthContext } from '../../providers/AuthProvider';
 import UserCar from "../../components/MyCar.jsx/MyCar";
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
-import Lottie from "lottie-react";
-import loader from '../../assets/loader.json';
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const MyCars = () => {
@@ -71,11 +69,6 @@ const MyCars = () => {
                         }
                     </tbody>
                 </table>
-                {
-                    myCars.length === 0 && <div className="w-full flex items-center justify-center">
-                        <Lottie className='w-10' animationData={loader} loop={true} />
-                    </div>
-                }
             </div>
         </div>
     );

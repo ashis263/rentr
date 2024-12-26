@@ -11,6 +11,7 @@ export default {
       },
       colors: {
         primary: '#01949A',
+        secondary: '#ac203cef',
         textPrimary: '#2e3944'
       },
       backgroundImage: {
