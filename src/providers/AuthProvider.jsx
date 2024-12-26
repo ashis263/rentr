@@ -31,7 +31,6 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, user => {
             if (user) {
                 setUser(user);
-                axios.post('http://localhost:5000/auth', { name: user.displayName, email: user.email}, { withCredentials: true});
                 setIsLoading(false);
             }else{
                 setUser(null);

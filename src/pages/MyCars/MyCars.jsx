@@ -3,24 +3,23 @@ import { AuthContext } from '../../providers/AuthProvider';
 import UserCar from "../../components/MyCar.jsx/MyCar";
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import Lottie from "lottie-react";
 import loader from '../../assets/loader.json';
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const MyCars = () => {
     const { user, myCars, setMyCars, isCarModified } = useContext(AuthContext);
     const [sortBy, setSortBy] = useState('');
     const [isDataLoaded, setIsDataLoaded] = useState(false);
     const navigate = useNavigate();
+    const axiosSecure = useAxiosSecure();
     if (sortBy === 'price') {
         setMyCars(myCars.sort((a, b) => a.dailyRentalPrice - b.dailyRentalPrice));
     } else if (sortBy === 'date') {
         setMyCars(myCars.sort((a, b) => new Date(a.date) - new Date(b.date)));
     }
     useEffect((() => {
-        axios.get(`http://localhost:5000/userCars/?email=${user.email}`, {
-            withCredentials: true
-        })
+        axiosSecure.get(`/userCars/?email=${user.email}`)
             .then(res => {
                 setMyCars(res.data);
                 setIsDataLoaded(true);

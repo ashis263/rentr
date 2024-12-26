@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import axios from 'axios';
 
 const Login = () => {
     const { user, setUser, auth } = useContext(AuthContext);
@@ -15,7 +16,6 @@ const Login = () => {
     const provider = new GoogleAuthProvider();
     const location = useLocation();
     const navigate = useNavigate();
-    console.log(location.state);
     if (!location.state === '/register') {
         if (user) { return <Navigate to={location.state ? location.state : "/"} /> };
     }
@@ -31,6 +31,7 @@ const Login = () => {
                     },
                     body: JSON.stringify(current)
                 })
+                axios.post('http://localhost:5000/auth', { name: user.displayName, email: user.email}, { withCredentials: true});
                 setUser(res.user);
                 Toast.fire({
                     icon: "success",
@@ -60,6 +61,7 @@ const Login = () => {
                     },
                     body: JSON.stringify(current)
                 })
+                axios.post('http://localhost:5000/auth', { name: user.displayName, email: user.email}, { withCredentials: true});
                 setUser(res.user);
                 Toast.fire({
                     icon: "success",

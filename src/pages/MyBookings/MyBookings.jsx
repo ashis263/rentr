@@ -1,15 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from '../../providers/AuthProvider';
-import axios from "axios";
 import Lottie from "lottie-react";
 import MyBooking from "../../components/MyBooking/MyBooking";
 import loader from '../../assets/loader.json';
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const MyBookings = () => {
     const [ myBookings, setMybookings ] = useState([]);
     const { user } = useContext(AuthContext);
+    const axiosSecure = useAxiosSecure();
     useEffect((()=> {
-        axios.get(`http://localhost:5000/userBookings/?email=${user.email}`, { withCredentials: true })
+        axiosSecure.get(`/userBookings/?email=${user.email}`)
         .then(res => {
             setMybookings(res.data);
         })
