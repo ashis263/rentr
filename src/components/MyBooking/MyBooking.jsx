@@ -6,6 +6,7 @@ import { CiCalendarDate } from "react-icons/ci";
 import Swal from 'sweetalert2';
 import Modal from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
+import moment from 'moment';
 
 
 const MyBooking = ({ booking: current, index }) => {
@@ -14,9 +15,9 @@ const MyBooking = ({ booking: current, index }) => {
     const handleModal = () => SetIsModalOpened(!isModalOpened);
     const date = new Date(booking.date);
     let formattedDate;
-    if(/to/.test(booking.date)){
+    if (/to/.test(booking.date)) {
         formattedDate = booking.date;
-    }else{
+    } else {
         formattedDate = `${String(date.getDate()).padStart(2, '0')}-${String(date.getMonth() + 1).padStart(2, '0')}-${date.getFullYear()} ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
     }
     const handleCancel = () => {
@@ -69,12 +70,19 @@ const MyBooking = ({ booking: current, index }) => {
         handleModal();
         const start = e.target.start.value;
         const end = e.target.end.value;
-        axios.patch(`http://localhost:5000/bookings/date/?id=${booking._id}`, { date: start + ' to ' + end })
+        const formattedStart = moment(start, "YYYY-MM-DD").format("DD-MM-YYYY");
+        const formattedEnd = moment(end, "YYYY-MM-DD").format("DD-MM-YYYY");
+        const momentDate1 = moment(formattedStart, "DD-MM-YYYY");
+        const momentDate2 = moment(formattedEnd, "DD-MM-YYYY");
+        const difference = Math.abs(momentDate1.diff(momentDate2, 'days'));
+        const newPrice = booking.dailyRentalPrice * difference;
+        console.log(difference);
+        axios.patch(`http://localhost:5000/bookings/date/?id=${booking._id}`, { date: start + ' to ' + end, dailyRentalPrice: newPrice })
             .then(res => {
                 console.log(res.data);
                 if (res.data.modifiedCount) {
-                    const { date, ...data } = booking;
-                    setBooking({ ...data, date: start + ' to ' + end })
+                    const { date, dailyRentalPrice, ...data } = booking;
+                    setBooking({ ...data, dailyRentalPrice: newPrice, date: formattedStart + ' to ' + formattedEnd })
                     Swal.fire({
                         title: "Modified!",
                         text: "Your booking date has been modified!.",
@@ -108,12 +116,12 @@ const MyBooking = ({ booking: current, index }) => {
                 <Modal className="pt-[30vh]" open={isModalOpened} onClose={handleModal}>
                     <p className='text-2xl px-20 py-5 text-primary font-bold'>Select Date Range</p>
                     <form onSubmit={handleDate} className='text-center flex justify-center flex-col'>
-                        From:<input type="date" placeholder='start' name="start" required />
+                        From:<input className='input input-bordered input-sm my-5' type="date" placeholder='start' name="start" required />
                         <br />
-                        To:<input type="date" name="end" required />
+                        To:<input className='input input-bordered input-sm my-5' type="date" name="end" required />
                         <div className='flex justify-center gap-12'>
                             <button className='btn btn-sm bg-primary hover:bg-primary text-white mr-5'>Confirm</button>
-                            <button type='button' onClick={handleModal} className='btn btn-sm bg-textPrimary'>Close</button>
+                            <button type='button' onClick={handleModal} className='btn btn-outline btn-sm'>Close</button>
                         </div>
                     </form>
                 </Modal>
