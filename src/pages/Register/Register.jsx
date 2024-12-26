@@ -5,43 +5,16 @@ import Lottie from "lottie-react";
 import login from "../../assets/login.json";
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../providers/AuthProvider';
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 
 
 const Register = () => {
-    const { user, setUser, auth } = useContext(AuthContext);
-    const [ error, setError ] = useState('');
+    const { user, auth } = useContext(AuthContext);
+    const [error, setError] = useState('');
     const [isPassShowing, setIsPassShowing] = useState(false);
     const handleShowPass = () => setIsPassShowing(!isPassShowing);
-    const provider = new GoogleAuthProvider();
     const navigate = useNavigate();
     if (user) { return <Navigate to={location.state ? location.state : "/"} /> };
-    const handleGoogleClick = () => {
-        signInWithPopup(auth, provider)
-            .then(res => {
-                const user = res.user;
-                const current = { name: user.displayName, email: user.email, createdAt: user.metadata.creationTime, lastLogin: user.metadata.lastSignInTime, photo: user.photoURL };
-                fetch('http://localhost:5000/users', {
-                    method: 'put',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(current)
-                })
-                setUser(res.user);
-                Toast.fire({
-                    icon: "success",
-                    title: "Signed in successfully"
-                });
-                navigate(location.state ? location.state : "/");
-            })
-            .catch(err => {
-                Toast.fire({
-                    icon: "error",
-                    title: err.code
-                });
-            })
-    };
     const handleFormSubmit = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
@@ -55,27 +28,27 @@ const Register = () => {
         } else {
             createUserWithEmailAndPassword(auth, email, password)
                 .then((res) => {
-                    Toast.fire({
-                        icon: "success",
-                        title: "Registered successfully"
-                    });
                     e.target.reset();
                     setError('');
                     updateProfile(auth.currentUser, {
                         displayName: name, photoURL: photo
                     })
                         .then(() => {
-                    const user = res.user;
-                    const current = { name: user.displayName, email: user.email, createdAt: user.metadata.creationTime, lastLogin: user.metadata.lastSignInTime, photo: user.photoURL };
-                    fetch('http://localhost:5000/users', {
-                        method: 'put',
-                        headers: {
-                            'content-type': 'application/json'
-                        },
-                        body: JSON.stringify(current)
-                    })
-                            setUser(res.user);
-                            navigate(location.state ? location.state : "/");
+                            signOut(auth);
+                            navigate("/login");
+                            const user = res.user;
+                            const current = { name: user.displayName, email: user.email, createdAt: user.metadata.creationTime, lastLogin: user.metadata.lastSignInTime, photo: user.photoURL };
+                            fetch('http://localhost:5000/users', {
+                                method: 'put',
+                                headers: {
+                                    'content-type': 'application/json'
+                                },
+                                body: JSON.stringify(current)
+                            })
+                            Toast.fire({
+                                icon: "success",
+                                title: "Registered successfully, please login!"
+                            });
                         })
                         .catch(err => {
                             Toast.fire({
@@ -110,13 +83,6 @@ const Register = () => {
             </div>
             <div className='w-4/5 lg:w-1/3 sm:w-1/2'>
                 <h1 className="text-4xl text-center sm:text-5xl lg:text-7xl sm:pt-0 font-bold text-primary">Register</h1>
-                <div className="w-11/12 mx-auto pt-5">
-                    <button onClick={handleGoogleClick} className="btn w-full max-lg:btn-sm btn-outline text-gray-400 hover:bg-primary text-xl">
-                        <img className="w-8" src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="" />
-                        Continue with Google
-                    </button>
-                    <p className='text-center pt-2 sm:p-5  text-gray-500'>or with email and password</p>
-                </div>
                 <form onSubmit={handleFormSubmit} className="w-11/12 mx-auto">
                     <div className="form-control">
                         <label className="label">

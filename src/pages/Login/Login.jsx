@@ -15,7 +15,10 @@ const Login = () => {
     const provider = new GoogleAuthProvider();
     const location = useLocation();
     const navigate = useNavigate();
-    if (user) { return <Navigate to={location.state ? location.state : "/"} /> };
+    console.log(location.state);
+    if (!location.state === '/register') {
+        if (user) { return <Navigate to={location.state ? location.state : "/"} /> };
+    }
     const handleGoogleClick = () => {
         signInWithPopup(auth, provider)
             .then(res => {

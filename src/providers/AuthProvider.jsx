@@ -34,6 +34,7 @@ const AuthProvider = ({ children }) => {
                 axios.post('http://localhost:5000/auth', { name: user.displayName, email: user.email}, { withCredentials: true});
                 setIsLoading(false);
             }else{
+                setUser(null);
                 axios.post('http://localhost:5000/logOut', {},  { withCredentials: true})
                 setIsLoading(false);
             }
