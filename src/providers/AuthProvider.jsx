@@ -12,7 +12,9 @@ const AuthProvider = ({ children }) => {
     const [ user, setUser ] = useState(null);
     const [ isLoading, setIsLoading ] = useState(true);
     const [ myCars, setMyCars ] = useState([]);
+    const [ cars, setCars ] = useState([]);
     const [ isCarModified, setIsCarModified ] = useState(false)
+    const [recent, setRecent] = useState([]);
 
     const auth = getAuth(app);
     const authData = {
@@ -24,7 +26,9 @@ const AuthProvider = ({ children }) => {
         myCars,
         setMyCars,
         isCarModified,
-        setIsCarModified
+        setIsCarModified,
+        recent,
+        cars
     }
     
     useEffect(() => {
@@ -41,6 +45,16 @@ const AuthProvider = ({ children }) => {
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+    
+    
+    useEffect((() => {
+        axios.get(('https://rentr-server.vercel.app/cars'))
+        .then(res=>{
+            setCars(res.data);
+        })
+        axios.get('https://rentr-server.vercel.app/cars/recent')
+            .then(res => setRecent(res.data))
+    }), [isCarModified])
     return (
         <div>
             <AuthContext.Provider value={ authData }>

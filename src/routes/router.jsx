@@ -39,8 +39,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/cars',
-                element: <AvailableCars></AvailableCars>,
-                loader: () => fetch('https://rentr-server.vercel.app/cars')
+                element: <AvailableCars></AvailableCars>
             },
             {
                 path: 'car/:id',

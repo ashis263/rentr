@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import 'animate.css';
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import Lottie from "lottie-react";
+import loader from '../../assets/loader.json';
 
 const MyCars = () => {
     const { user, myCars, setMyCars, isCarModified } = useContext(AuthContext);
@@ -48,34 +50,39 @@ const MyCars = () => {
                 <Helmet>
                     <title>Rentr | My Cars</title>
                 </Helmet>
-            <h1 className="text-4xl text-center sm:text-5xl lg:text-7xl sm:pt-0 font-bold text-primary pb-2 sm:pb-5">My Cars</h1>
-            <div className="flex justify-end mr-10 shadow-sm">
-                <select onChange={(e) => setSortBy(e.target.value)} className={`border rounded-lg p-2 border-gray-200 select-sm text-xs mb-2 text-center`} name="availability" required>
-                    <option disabled selected>Sort By</option>
-                    <option value="date">Date</option>
-                    <option value="price">Price</option>
-                </select>
-            </div>
-            <div className="overflow-x-auto shadow-lg">
-                <table className="table">
-                    {/* head */}
-                    <thead>
-                        <tr className="font-bold bg-[#01959a42] text-center">
-                            <th className="max-sm:hidden">Image</th>
-                            <th>Model</th>
-                            <th>Rent/day</th>
-                            <th>Availablity</th>
-                            <th className="max-sm:hidden">Added</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            myCars.length !== 0 && myCars.map((car, index) => <UserCar key={car._id} index={index} car={car}></UserCar>)
-                        }
-                    </tbody>
-                </table>
-            </div>
+                <h1 className="text-4xl text-center sm:text-5xl lg:text-7xl sm:pt-0 font-bold text-primary pb-2 sm:pb-5">My Cars</h1>
+                <div className="flex justify-end mr-10 shadow-sm">
+                    <select onChange={(e) => setSortBy(e.target.value)} className={`border rounded-lg p-2 border-gray-200 select-sm text-xs mb-2 text-center`} name="availability" required>
+                        <option disabled selected>Sort By</option>
+                        <option value="date">Date</option>
+                        <option value="price">Price</option>
+                    </select>
+                </div>
+                <div className="overflow-x-auto shadow-lg">
+                    <table className="table">
+                        {/* head */}
+                        <thead>
+                            <tr className="font-bold bg-[#01959a42] text-center">
+                                <th className="max-sm:hidden">Image</th>
+                                <th>Model</th>
+                                <th>Rent/day</th>
+                                <th>Availablity</th>
+                                <th className="max-sm:hidden">Added</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                isDataLoaded && myCars.length !== 0 && myCars.map((car, index) => <UserCar key={car._id} index={index} car={car}></UserCar>)
+                            }
+                        </tbody>
+                    </table>
+                    {
+                        !isDataLoaded && <div className="w-full flex items-center justify-center">
+                            <Lottie className='w-10' animationData={loader} loop={true} />
+                        </div>
+                    }
+                </div>
             </HelmetProvider>
         </div>
     );

@@ -1,18 +1,11 @@
-import { useContext, useState } from "react";
-import { useEffect } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import axios from "axios";
 import RecentCar from "../RecentCar/RecentCar";
 import Lottie from "lottie-react";
 import loader from '../../assets/loader.json';
 
 const RecentListing = () => {
-    const { isCarModified } = useContext(AuthContext)
-    const [recent, setRecent] = useState([]);
-    useEffect((() => {
-        axios.get('https://rentr-server.vercel.app/cars/recent')
-            .then(res => setRecent(res.data))
-    }), [isCarModified]);
+    const { recent } = useContext(AuthContext);
     return (
         <div>
             <p className="text-center text-primary">Recently added cars</p>

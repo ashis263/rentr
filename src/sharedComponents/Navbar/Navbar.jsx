@@ -9,11 +9,9 @@ import '../Navbar/navbar.css'
 
 
 const Navbar = () => {
-    const { auth, user, setUser } = useContext(AuthContext);
+    const { auth, user} = useContext(AuthContext);
     const navigate = useNavigate();
     const handleLogout = () => {
-        signOut(auth);
-        setUser(null);
         const Toast = Swal.mixin({
             toast: true,
             position: "top",
@@ -30,6 +28,7 @@ const Navbar = () => {
             title: "Logged out successfully"
         });
         navigate('/');
+        signOut(auth);
     };
     const navLinks = <>
         <NavLink className={user ? "" : ""} to="/">Home</NavLink>
@@ -41,7 +40,7 @@ const Navbar = () => {
         <button onClick={handleLogout} className={user ? "btn sm:btn-sm bg-primary text-white hover:bg-primary btn-xs" : "hidden"} to="/">Logout</button>
     </>
     return (
-        <div className='fixed w-full bg-[#fffffff2] shadow-sm z-10'>
+        <div className='fixed w-full max-w-screen-2xl bg-[#fffffff2] shadow-sm z-10'>
             <div className="navbar w-11/12 mx-auto px-0 py-0 sm:my-1">
                 <div className="navbar-start">
                     <button onClick={() => navigate('/')} className="btn btn-ghost hover:bg-transparent text-xl px-0">

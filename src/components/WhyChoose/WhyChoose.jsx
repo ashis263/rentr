@@ -5,7 +5,7 @@ import { MdOutlineWebhook } from "react-icons/md";
 
 const WhyChoose = () => {
     return (
-        <div className="w-11/12 mx-auto my-5 sm:my-8 lg:my-20">
+        <div className="w-4/5 mx-auto my-5 sm:my-8 lg:my-20">
             <p className="text-center text-primary">Why Rentr</p>
             <h4 className="text-center text-xl sm:2xl lg:text-4xl xl:5xl">Why Choose Us</h4>
             <div className="mt-5 grid grid-cols-2 lg:w-2/3 xl:w-3/5 mx-auto gap-2 sm:gap-5">

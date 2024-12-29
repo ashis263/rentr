@@ -1,13 +1,15 @@
 import { useLoaderData } from "react-router-dom";
 import Swal from 'sweetalert2';
 import axios from 'axios';
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import 'animate.css';
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const CarDetails = () => {
     const { user } = useContext(AuthContext);
+    const [myBookings, setMybookings] = useState([]);
     const car = useLoaderData();
     const { _id, carImage: img, ...data } = car;
     const [ carToRender, setCarToRender ] = useState(car);
@@ -20,8 +22,23 @@ const CarDetails = () => {
         bookingDate: date,
         findingKey: _id + user.email
     }
+    const axiosSecure = useAxiosSecure();
+    useEffect((() => {
+        axiosSecure.get(`/userBookings/?email=${user.email}`)
+            .then(res => {
+                setMybookings(res.data);
+            })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }), [carToRender]);
     const handleBook = () => {
-        axios.post('https://rentr-server.vercel.app/bookings', booking)
+        const existed = myBookings.find(booking => booking.findingKey === _id + user.email)
+        if(existed){
+            Toast.fire({
+                icon: "warning",
+                title: 'Already booked!'
+            });
+        }else{
+            axios.post('https://rentr-server.vercel.app/bookings', booking)
             .then(res => {
                 if (res.data.insertedId) {
                     carToRender.bookingCount = bookingCount + 1;
@@ -35,11 +52,6 @@ const CarDetails = () => {
                     `,
                         icon: "success"
                     });
-                } else {
-                    Toast.fire({
-                        icon: "warning",
-                        title: 'Already booked!'
-                    });
                 }
             })
             .catch(err => {
@@ -48,6 +60,7 @@ const CarDetails = () => {
                     title: err.message
                 });
             })
+        }
     }
     const Toast = Swal.mixin({
         toast: true,
