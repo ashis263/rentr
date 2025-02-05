@@ -70,7 +70,7 @@
 <p>Follow these steps to set up <strong>Rentr</strong> on your local machine:</p>
 
 <h3>1️⃣ Clone the Repository</h3>
-<pre><code>git clone https://github.com/your-username/rentr.git
+<pre><code>git clone https://github.com/ashis263/rentr.git
 cd rentr</code></pre>
 
 <h3>2️⃣ Install Dependencies</h3>
