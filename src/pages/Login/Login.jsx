@@ -131,7 +131,7 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn max-lg:btn-sm hover:bg-primary border-none bg-primary text-white lg:text-xl">Login</button>
+                            <button className="btn max-lg:btn-sm className='btn bg-gradient-to-r from-gray-300 via-gray-500 to-gray-400 text-white border-none duration-1000 hover:bg-primary btn-sm' lg:text-xl">Login</button>
                         </div>
                     </form>
                 </div>

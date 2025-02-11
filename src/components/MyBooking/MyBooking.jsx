@@ -120,8 +120,8 @@ const MyBooking = ({ booking: current, index }) => {
                         <br />
                         To:<input className='input input-bordered input-sm my-5' type="date" name="end" required />
                         <div className='flex justify-center gap-12'>
-                            <button className='btn btn-sm bg-primary hover:bg-primary text-white mr-5'>Confirm</button>
-                            <button type='button' onClick={handleModal} className='btn btn-outline btn-sm'>Close</button>
+                            <button className='btn btn-sm bg-gradient-to-r from-[#01769a86] via-[#20758a] text-white border-none duration-1000 hover:bg-primary mr-5'>Confirm</button>
+                            <button type='button' onClick={handleModal} className='btn bg-gradient-to-r from-gray-300 via-gray-500 to-gray-400 text-white border-none duration-1000 hover:bg-primary btn-sm'>Close</button>
                         </div>
                     </form>
                 </Modal>

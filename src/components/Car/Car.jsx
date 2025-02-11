@@ -16,7 +16,7 @@ const Car = ({ car }) => {
                 <p className='text-2xl font-semibold font-mono'>{carModel}</p>
                 <p className='text-xs text-gray-500 py-5'>{description}</p>
                 <p><span className='font-semibold'>Features:</span> {features}</p>
-                <Link to={`/car/${_id}`} className="btn w-full px-10 my-5 btn-sm hover:bg-slate-700 text-gray-100 border-none bg-slate-700 text-xs">Book Now</Link>
+                <Link to={`/car/${_id}`} className="btn w-full px-10 my-5 btn-sm bg-gradient-to-r from-[#01769a86] via-[#20758a] text-white border-none duration-1000 hover:bg-primary text-xs">Book Now</Link>
             </div>
         </div>
     );

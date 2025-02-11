@@ -22,7 +22,7 @@ const TableCar = ( { car, index }) => {
             <td className=''>{availability ? 'Available' : 'Not available'}</td>
             <td>{location}</td>
             <th className='text-center sm:space-x-2'>
-                <Link to={`/car/${_id}`} className="btn hover:bg-transparent hover:text-primary text-gray-700 btn-outline px-10 my-5 btn-sm text-xs max-sm:w-10">Book Now</Link>
+                <Link to={`/car/${_id}`} className="btn hover:bg-transparent className='btn bg-gradient-to-r from-gray-300 via-gray-500 to-gray-400 text-white border-none duration-1000 hover:bg-primary btn-sm'btn-outline px-10 my-5 btn-sm text-xs max-sm:w-10">Book Now</Link>
             </th>
         </tr>
     );
