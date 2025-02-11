@@ -6,8 +6,6 @@ import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import 'animate.css';
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import Lottie from "lottie-react";
-import loader from '../../assets/loader.json';
 
 const MyCars = () => {
     const { user, myCars, setMyCars, isCarModified } = useContext(AuthContext);
@@ -79,7 +77,17 @@ const MyCars = () => {
                     </table>
                     {
                         !isDataLoaded && <div className="w-full flex items-center justify-center">
-                            <Lottie className='w-10' animationData={loader} loop={true} />
+                            <div className="flex w-full flex-col gap-4">
+                                <div className="skeleton h-14 mx-5 w-[calc(100%-40px)] my-2 dark:bg-gray-700"></div>
+                                <div className="skeleton h-14 mx-5 w-[calc(100%-40px)] my-2 dark:bg-gray-700"></div>
+                                <div className="skeleton h-14 mx-5 w-[calc(100%-40px)] my-2 dark:bg-gray-700"></div>
+                                <div className="skeleton h-14 mx-5 w-[calc(100%-40px)] my-2 dark:bg-gray-700"></div>
+                                <div className="skeleton h-14 mx-5 w-[calc(100%-40px)] my-2 dark:bg-gray-700"></div>
+                                <div className="skeleton h-14 mx-5 w-[calc(100%-40px)] my-2 dark:bg-gray-700"></div>
+                                <div className="skeleton h-14 mx-5 w-[calc(100%-40px)] my-2 dark:bg-gray-700"></div>
+                                <div className="skeleton h-14 mx-5 w-[calc(100%-40px)] my-2 dark:bg-gray-700"></div>
+                                <div className="skeleton h-14 mx-5 w-[calc(100%-40px)] my-2 dark:bg-gray-700"></div>
+                            </div>
                         </div>
                     }
                 </div>

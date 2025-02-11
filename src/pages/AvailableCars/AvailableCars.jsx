@@ -7,8 +7,6 @@ import TableCar from "../../components/TableCar/TableCar";
 import 'animate.css';
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { AuthContext } from "../../providers/AuthProvider";
-import Lottie from "lottie-react";
-import loader from '../../assets/loader.json';
 
 
 
@@ -63,11 +61,11 @@ const AvailableCars = () => {
                     </div>
                     <div>
                         {
-                            (filtered.length !== 0) ? 
-                                ((isGridMode) ? 
-                                <div className="grid gc-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 pt-5 sm:pt-10 sm:gap-5">
-                                    {filtered.map(car => <Car key={car._id} car={car}></Car>)}
-                                </div>
+                            (filtered.length !== 0) ?
+                                ((isGridMode) ?
+                                    <div className="grid gc-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 pt-5 sm:pt-10 sm:gap-5">
+                                        {filtered.map(car => <Car key={car._id} car={car}></Car>)}
+                                    </div>
                                     :
                                     <table className="table">
                                         <thead>
@@ -84,13 +82,54 @@ const AvailableCars = () => {
                                             {filtered.map((car, index) => <TableCar key={car._id} index={index} car={car}></TableCar>)}
                                         </tbody>
                                     </table>)
-                            :
+                                :
                                 (
-                                    <div className="w-full flex items-center justify-center">
-                                        <Lottie className='w-10' animationData={loader} loop={true} />
+                                    <div className="grid gc-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 pt-5 sm:pt-10 sm:gap-5">
+                                        <div className='flex flex-col shadow p-5 rounded-xl gap-5 items-center bg-white dark:bg-gray-700'>
+                                            <div className="skeleton h-44 w-80 dark:bg-gray-700"></div>
+                                            <div className="skeleton h-12 w-[calc(100%-10px)] dark:bg-gray-700 mt-8"></div>
+                                            <div className="skeleton h-3 w-[calc(100%-10px)] dark:bg-gray-700"></div>
+                                            <div className="skeleton h-3 w-[calc(100%-10px)] dark:bg-gray-700"></div>
+                                            <div className="skeleton h-3 w-[calc(100%-10px)] dark:bg-gray-700"></div>
+                                        </div>
+                                        <div className='flex flex-col shadow p-5 rounded-xl gap-5 items-center bg-white dark:bg-gray-700'>
+                                            <div className="skeleton h-44 w-80 dark:bg-gray-700"></div>
+                                            <div className="skeleton h-12 w-[calc(100%-10px)] dark:bg-gray-700 mt-8"></div>
+                                            <div className="skeleton h-3 w-[calc(100%-10px)] dark:bg-gray-700"></div>
+                                            <div className="skeleton h-3 w-[calc(100%-10px)] dark:bg-gray-700"></div>
+                                            <div className="skeleton h-3 w-[calc(100%-10px)] dark:bg-gray-700"></div>
+                                        </div>
+                                        <div className='flex flex-col shadow p-5 rounded-xl gap-5 items-center bg-white dark:bg-gray-700'>
+                                            <div className="skeleton h-44 w-80 dark:bg-gray-700"></div>
+                                            <div className="skeleton h-12 w-[calc(100%-10px)] dark:bg-gray-700 mt-8"></div>
+                                            <div className="skeleton h-3 w-[calc(100%-10px)] dark:bg-gray-700"></div>
+                                            <div className="skeleton h-3 w-[calc(100%-10px)] dark:bg-gray-700"></div>
+                                            <div className="skeleton h-3 w-[calc(100%-10px)] dark:bg-gray-700"></div>
+                                        </div>
+                                        <div className='flex flex-col shadow p-5 rounded-xl gap-5 items-center bg-white dark:bg-gray-700'>
+                                            <div className="skeleton h-44 w-80 dark:bg-gray-700"></div>
+                                            <div className="skeleton h-12 w-[calc(100%-10px)] dark:bg-gray-700 mt-8"></div>
+                                            <div className="skeleton h-3 w-[calc(100%-10px)] dark:bg-gray-700"></div>
+                                            <div className="skeleton h-3 w-[calc(100%-10px)] dark:bg-gray-700"></div>
+                                            <div className="skeleton h-3 w-[calc(100%-10px)] dark:bg-gray-700"></div>
+                                        </div>
+                                        <div className='flex flex-col shadow p-5 rounded-xl gap-5 items-center bg-white dark:bg-gray-700'>
+                                            <div className="skeleton h-44 w-80 dark:bg-gray-700"></div>
+                                            <div className="skeleton h-12 w-[calc(100%-10px)] dark:bg-gray-700 mt-8"></div>
+                                            <div className="skeleton h-3 w-[calc(100%-10px)] dark:bg-gray-700"></div>
+                                            <div className="skeleton h-3 w-[calc(100%-10px)] dark:bg-gray-700"></div>
+                                            <div className="skeleton h-3 w-[calc(100%-10px)] dark:bg-gray-700"></div>
+                                        </div>
+                                        <div className='flex flex-col shadow p-5 rounded-xl gap-5 items-center bg-white dark:bg-gray-700'>
+                                            <div className="skeleton h-44 w-80 dark:bg-gray-700"></div>
+                                            <div className="skeleton h-12 w-[calc(100%-10px)] dark:bg-gray-700 mt-8"></div>
+                                            <div className="skeleton h-3 w-[calc(100%-10px)] dark:bg-gray-700"></div>
+                                            <div className="skeleton h-3 w-[calc(100%-10px)] dark:bg-gray-700"></div>
+                                            <div className="skeleton h-3 w-[calc(100%-10px)] dark:bg-gray-700"></div>
+                                        </div>
                                     </div>
                                 )
-                            
+
                         }
                     </div>
                 </div>
