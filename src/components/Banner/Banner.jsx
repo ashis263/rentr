@@ -3,11 +3,11 @@ import { Typewriter } from 'react-simple-typewriter';
 
 const Banner = () => {
     return (
-        <div className="pt-28 lg:pt-32 relative">
+        <div className="pt-28 lg:pt-32 relative max-sm:mb-20">
             <div className='bg-banner h-[35vh] sm:h-[55vh] lg:h-[70vh] bg-contain bg-no-repeat w-full sm:opacity-40'>
             </div>
             <div className='w-full sm:w-11/12 mx-auto text-center'>
-                <div className='sm:absolute sm:top-36 lg:top-44 xl:top-52 space-y-2 lg:space-y-5 xl:left-52 max-sm:-mt-20'>
+                <div className='sm:absolute sm:top-36 lg:top-44 xl:top-52 space-y-2 lg:space-y-5 xl:left-72 max-sm:-mt-20'>
                     <h1 className='font-bold text-3xl sm:text-5xl lg:text:6xl xl:text-7xl text-[#01949A]'>Drive Your {' '}
                         <span className='text-[#ac203cef]'>
                             <Typewriter

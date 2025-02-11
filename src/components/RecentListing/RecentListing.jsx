@@ -7,10 +7,10 @@ import loader from '../../assets/loader.json';
 const RecentListing = () => {
     const { recent } = useContext(AuthContext);
     return (
-        <div>
+        <div className="mb-20 lg:mb-32">
             <p className="text-center text-primary">Recently added cars</p>
             <h4 className="drop-shadow-2xl font-semibold text-center text-xl sm:2xl lg:text-4xl xl:5xl">Recent Listing</h4>
-            <div className="w-4/5 mx-auto grid gc-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 pt-5 sm:pt-10 sm:gap-5">
+            <div className="w-11/12 mx-auto grid gc-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 pt-5 sm:pt-10 sm:gap-5">
                 {recent.length !== 0 && recent.map(car => <RecentCar key={car._id} car={car}></RecentCar>)}
             </div>
             {

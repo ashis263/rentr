@@ -36,11 +36,11 @@ const Navbar = () => {
         <NavLink className={user ? "" : "hidden"} to="/addCar">Add Car</NavLink>
         <NavLink className={user ? "" : "hidden"} to="/myCars">My Cars</NavLink>
         <NavLink className={user ? "" : "hidden"} to="/myBookings">My Bookings</NavLink>
-        <NavLink className={user ? "hidden log" : "log btn sm:btn-sm bg-primary text-white hover:bg-primary btn-xs"} to="/login">Log In</NavLink>
-        <button onClick={handleLogout} className={user ? "btn sm:btn-sm bg-primary text-white hover:bg-primary btn-xs" : "hidden"} to="/">Logout</button>
+        <NavLink className={user ? "hidden log" : "log btn sm:btn-sm bg-primary border-none text-gray-50  hover:bg-primary btn-xs rounded"} to="/login">Log In</NavLink>
+        <button onClick={handleLogout} className={user ? "btn sm:btn-sm bg-primary border-none text-gray-50  hover:bg-primary btn-xs rounded" : "hidden"} to="/">Logout</button>
     </>
     return (
-        <div className='fixed w-full max-w-screen-2xl bg-[#fffffff2] shadow-sm z-10'>
+        <div className='fixed w-full max-w-screen-2xl shadow-sm z-10 backdrop-blur-xl'>
             <div className="navbar w-11/12 mx-auto px-0 py-0 sm:my-1">
                 <div className="navbar-start">
                     <button onClick={() => navigate('/')} className="btn btn-ghost hover:bg-transparent text-xl px-0">
@@ -48,7 +48,7 @@ const Navbar = () => {
                         <img src={logo} className='w-3 sm:w-5 sm:mt-1' alt="" />
                     </button>
                 </div>
-                <div className="navbar-end space-x-2">
+                <div className="navbar-end">
                     <ul className="p-0 menu menu-horizontal gap-2 hidden lg:flex items-center">
                         {navLinks}
                     </ul>
