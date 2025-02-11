@@ -157,7 +157,7 @@ const UserCar = ({ car, index }) => {
                         <label className="label">
                             <span className={`label-text`}>Availablity</span>
                         </label>
-                        <select className={`border rounded-lg p-2 border-gray-200 max-sm:select-sm`} name="availability" required>
+                        <select className={`border rounded-xl p-2 border-gray-200 max-sm:select-sm`} name="availability" required>
                             <option></option>
                             <option selected={car.availability === 'true'} value="true">Available</option>
                             <option selected={car.availability !== 'true'} value="false">Not Available</option>
@@ -197,7 +197,7 @@ const UserCar = ({ car, index }) => {
                         <label className="label">
                             <span className={`label-text`}>Image</span>
                         </label>
-                        <div {...getRootProps()} className="w-full border-2 rounded-lg p-5 text-center flex items-center justify-center flex-col">
+                        <div {...getRootProps()} className="w-full border-2 rounded-xl p-5 text-center flex items-center justify-center flex-col">
                             <input {...getInputProps()} />
                             <TbDragDrop className='text-2xl sm:text-5xl' />
                             <p className='max-sm:text-xs'>Drag and drop image file or click here to select.</p>

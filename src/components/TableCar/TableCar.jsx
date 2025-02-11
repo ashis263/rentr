@@ -9,7 +9,7 @@ const TableCar = ( { car, index }) => {
             <td className='flex justify-center max-sm:hidden'>
                 <div className="flex items-center gap-3">
                     <div className="avatar">
-                        <div className="mask mask-squircle h-12 w-12">
+                        <div className="mask mask-squircle w-12 mt-3">
                             <img
                                 src={carImage}
                                 alt="car" />
@@ -22,7 +22,7 @@ const TableCar = ( { car, index }) => {
             <td className=''>{availability ? 'Available' : 'Not available'}</td>
             <td>{location}</td>
             <th className='text-center sm:space-x-2'>
-                <Link to={`/car/${_id}`} className="btn hover:bg-transparent className='btn bg-gradient-to-r from-gray-300 via-gray-500 to-gray-400 text-white border-none duration-1000 hover:bg-primary btn-sm'btn-outline px-10 my-5 btn-sm text-xs max-sm:w-10">Book Now</Link>
+                <Link to={`/car/${_id}`} className="btn hover:bg-transparent  bg-gradient-to-r from-[#01769a86] via-[#20758a] text-white border-none duration-1000 hover:bg-primary px-10 my-5 btn-sm text-xs max-sm:w-10">Book Now</Link>
             </th>
         </tr>
     );

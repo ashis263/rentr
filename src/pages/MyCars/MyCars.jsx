@@ -52,7 +52,7 @@ const MyCars = () => {
                 </Helmet>
                 <h1 className="text-4xl text-center sm:text-5xl lg:text-7xl sm:pt-0 font-bold text-primary pb-2 sm:pb-5">My Cars</h1>
                 <div className="flex justify-end mr-10 shadow-sm">
-                    <select onChange={(e) => setSortBy(e.target.value)} className={`border rounded-lg p-2 border-gray-200 select-sm text-xs mb-2 text-center`} name="availability" required>
+                    <select onChange={(e) => setSortBy(e.target.value)} className={`border rounded-xl p-2 border-gray-200 select-sm text-xs mb-2 text-center`} name="availability" required>
                         <option disabled selected>Sort By</option>
                         <option value="date">Date</option>
                         <option value="price">Price</option>

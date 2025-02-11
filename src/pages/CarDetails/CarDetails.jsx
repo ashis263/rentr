@@ -82,7 +82,7 @@ const CarDetails = () => {
             <h1 className="text-3xl text-center sm:text-4xl lg:text-5xl sm:pt-0 font-bold text-primary pb-2 sm:pb-5">{carModel}</h1>
             <div className='flex gap-5'>
                 <div className='flex flex-col items-center w-2/5 drop-shadow-2xl'>
-                    <img className='w-80 rounded-lg mb-5' src={carImage} alt="" />
+                    <img className='w-80 rounded-xl mb-5' src={carImage} alt="" />
                     <p className="text-xl mb-5"><span className='text-[#ac203cef] font-bold'>{dailyRentalPrice}$</span> /day</p>
                     <p className={`${availability === 'true' ? 'text-green-600' : 'text-red-600'} font-bold`}>{availability === 'true' ? 'Available' : 'Not Available'}</p>
                     <p><span className='font-semibold'>Location: </span><span className='text-primary'>{location}</span></p>

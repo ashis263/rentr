@@ -48,7 +48,7 @@ const AvailableCars = () => {
                             </div>
                         </div>
                         <div className=" flex items-center">
-                            <select onChange={(e) => setSortBy(e.target.value)} className={`border rounded-lg p-2 border-gray-200    text-xs text-center mr-10`} name="availability" required>
+                            <select onChange={(e) => setSortBy(e.target.value)} className={`border rounded-xl p-2 border-gray-200    text-xs text-center mr-10`} name="availability" required>
                                 <option disabled selected>Sort By</option>
                                 <option value="date">Date</option>
                                 <option value="price">Price</option>
