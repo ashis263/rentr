@@ -92,7 +92,7 @@ const MyBooking = ({ booking: current, index }) => {
             })
     }
     return (
-        <tr className={`${index % 2 === 0 ? 'hover:bg-slate-200 ' : 'hover:bg-slate-200 bg-gray-100'}`}>
+        <tr className={`${index % 2 === 0 ? 'hover:bg-slate-200 dark:hover:bg-gray-400 text-center ' : 'hover:bg-slate-200 dark:hover:bg-gray-400 text-center bg-gray-100 dark:bg-gray-700'}`}>
             <td className='flex justify-center max-sm:hidden'>
                 <div className="flex items-center gap-3">
                     <div className="avatar">

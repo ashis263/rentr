@@ -110,7 +110,7 @@ const UserCar = ({ car, index }) => {
             })
     }
     return (
-        <tr className={`${index % 2 === 0 ? 'hover:bg-slate-200 text-center ' : 'hover:bg-slate-200 text-center bg-gray-100'}`}>
+        <tr className={`${index % 2 === 0 ? 'hover:bg-slate-200 dark:hover:bg-gray-400 text-center ' : 'hover:bg-slate-200 dark:hover:bg-gray-400 text-center bg-gray-100 dark:bg-gray-700'}`}>
             <td className='flex justify-center max-sm:hidden'>
                 <div className="flex items-center gap-3">
                     <div className="avatar">
@@ -207,7 +207,7 @@ const UserCar = ({ car, index }) => {
                         </div>
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn max-lg:btn-sm className='btn bg-gradient-to-r from-gray-300 via-gray-500 to-gray-400 text-white border-none duration-1000 hover:bg-primary btn-sm' lg:text-xl">Update</button>
+                        <button className="btn max-lg:btn-sm className='btn bg-gradient-to-r from-[#01769a86] via-[#20758a] dark:to-[#01769a86] text-white border-none duration-1000 hover:bg-primary btn-sm' lg:text-xl">Update</button>
                     </div>
                 </form>
             </Modal>

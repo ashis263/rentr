@@ -42,18 +42,18 @@ const AvailableCars = () => {
                     <h1 className="text-4xl text-center sm:text-5xl lg:text-7xl sm:pt-0 font-bold text-primary pb-2 sm:pb-5">Available Cars</h1>
                     <div className="flex justify-between items-center shadow-sm pb-5">
                         <div className="flex items-center">
-                            <input onChange={onSearch} type="text" placeholder="Search" className="input input-sm input-bordered" />
+                            <input onChange={onSearch} type="text" placeholder="Search" className="input input-sm input-bordered dark:bg-gray-500" />
                             <div className="relative text-xl -left-7 text-gray-400">
                                 <CiSearch />
                             </div>
                         </div>
                         <div className=" flex items-center">
-                            <select onChange={(e) => setSortBy(e.target.value)} className={`border rounded-xl p-2 border-gray-200    text-xs text-center mr-10`} name="availability" required>
+                            <select onChange={(e) => setSortBy(e.target.value)} className={`border rounded-xl p-2 border-gray-200 dark:bg-gray-500 dark:border-none text-xs text-center mr-10`} name="availability" required>
                                 <option disabled selected>Sort By</option>
                                 <option value="date">Date</option>
                                 <option value="price">Price</option>
                             </select>
-                            <div>
+                            <div className="dark:text-gray-300">
                                 <PiTableFill onClick={handleMode} className={`${!isGridMode ? 'hidden' : 'block'} text-4xl`} />
                             </div>
                             <div>

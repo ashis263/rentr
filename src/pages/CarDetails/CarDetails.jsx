@@ -93,7 +93,7 @@ const CarDetails = () => {
                     <p className="">Total bookings: <span className=' text-primary font-extrabold'>{bookingCount}</span></p>
                 </div>
             </div>
-            <button onClick={handleBook} to={`/car/${_id}`} className="btn w-full className='btn bg-gradient-to-r from-gray-300 via-gray-500 to-gray-400 text-white border-none duration-1000 hover:bg-primary btn-sm' px-10 my-5 max-sm:btn-sm sm:text-lg text-xs">Book Now</button>
+            <button onClick={handleBook} to={`/car/${_id}`} className="btn w-full className='btn bg-gradient-to-r from-[#01769a86] via-[#20758a] dark:to-[#01769a86] text-white border-none duration-1000 hover:bg-primary btn-sm' px-10 my-5 max-sm:btn-sm sm:text-lg text-xs">Book Now</button>
             </HelmetProvider>
         </div>
     );

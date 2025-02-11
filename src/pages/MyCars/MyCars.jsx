@@ -52,7 +52,7 @@ const MyCars = () => {
                 </Helmet>
                 <h1 className="text-4xl text-center sm:text-5xl lg:text-7xl sm:pt-0 font-bold text-primary pb-2 sm:pb-5">My Cars</h1>
                 <div className="flex justify-end mr-10 shadow-sm">
-                    <select onChange={(e) => setSortBy(e.target.value)} className={`border rounded-xl p-2 border-gray-200 select-sm text-xs mb-2 text-center`} name="availability" required>
+                    <select onChange={(e) => setSortBy(e.target.value)} className={`border rounded-xl p-2 border-gray-200 select-sm text-xs mb-2 text-center dark:bg-gray-500 dark:border-none`} name="availability" required>
                         <option disabled selected>Sort By</option>
                         <option value="date">Date</option>
                         <option value="price">Price</option>
@@ -62,7 +62,7 @@ const MyCars = () => {
                     <table className="table">
                         {/* head */}
                         <thead>
-                            <tr className="font-bold bg-[#01959a42] text-center">
+                            <tr className="font-bold bg-[#01959a42] text-center dark:text-gray-50">
                                 <th className="max-sm:hidden">Image</th>
                                 <th>Model</th>
                                 <th>Rent/day</th>

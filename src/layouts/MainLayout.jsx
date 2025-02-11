@@ -15,7 +15,7 @@ const MainLayout = () => {
         </div>
     }
     return (
-        <div className="max-w-screen-2xl mx-auto text-textPrimary">
+        <div className="max-w-screen-2xl mx-auto text-textPrimary bg-gray-50 dark:bg-gray-800 dark:text-gray-50 duration-1000">
             <header>
                 <Navbar></Navbar>
             </header>

@@ -8,7 +8,7 @@ const Car = ({ car }) => {
     const currentDateISO = new Date().toISOString();
     const difference = Math.abs(moment(date).diff(moment(currentDateISO), 'days'));
     return (
-        <div className='flex flex-col shadow bg-white duration-1000 p-5 rounded-xl gap-5 items-center hover:shadow-lg hover:shadow-primary text-center'>
+        <div className='flex flex-col shadow bg-white dark:bg-gray-700 duration-1000 p-5 rounded-xl gap-5 items-center hover:shadow-lg hover:shadow-primary text-center'>
             <div className='flex flex-col drop-shadow-2xl h-full justify-between gap-5'>
                 <div className='flex flex-col items-center gap-5'>
                     <img className='w-52 drop-shadow-xl rounded-xl' src={carImage} alt="" />
@@ -18,7 +18,7 @@ const Car = ({ car }) => {
                     <p className={`${availability === 'true' ? 'text-green-600' : 'text-red-600'} font-bold`}>{availability === 'true' ? 'Available' : 'Not Available'}</p>
                     <p><span className='text-[#ac203cef]'>{dailyRentalPrice}$</span> /day</p>
                     <p><span className='text-teal-900'>Added {difference} days ago</span></p>
-                    <Link to={`/car/${_id}`} className="btn btn-wide px-10 my-5 btn-sm bg-gradient-to-r from-[#01769a86] via-[#20758a] text-white border-none duration-1000 hover:bg-primary text-xs">Book Now</Link>
+                    <Link to={`/car/${_id}`} className="btn btn-wide px-10 my-5 btn-sm bg-gradient-to-r from-[#01769a86] via-[#20758a] dark:to-[#01769a86] text-white border-none duration-1000 hover:bg-primary text-xs">Book Now</Link>
                 </div>
             </div>
         </div>

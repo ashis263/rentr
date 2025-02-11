@@ -37,7 +37,7 @@ const Testimonials = () => {
                 className="mt-5 sm:mt-10"
             >
                 <SwiperSlide>
-                    <div className="bg-white p-5 rounded-xl shadow-lg text-gray-500 space-y-3">
+                    <div className="bg-white dark:bg-gray-700 dark:text-gray-400 p-5 rounded-xl shadow-lg text-gray-500 space-y-3">
                         <FaQuoteLeft className="text-4xl text-primary" />
                         <p className="pl-8 text-justify overflow-y-scroll h-[15vh] text-xs pt-5">Seamless Car Rental Experience! I recently rented a car through rentr, and the process was incredibly easy and hassle-free. The booking interface was intuitive, and I loved the variety of vehicles available. Pickup and drop-off were smooth, and the car was in great condition. Highly recommend!</p>
                         <div className="flex justify-center">
@@ -47,7 +47,7 @@ const Testimonials = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="bg-white p-5 rounded-xl shadow-lg text-gray-500 space-y-3">
+                    <div className="bg-white dark:bg-gray-700 dark:text-gray-400 p-5 rounded-xl shadow-lg text-gray-500 space-y-3">
                         <FaQuoteLeft className="text-4xl text-primary" />
                         <p className="pl-8 text-justify overflow-y-scroll h-[15vh] text-xs pt-5">I recently rented a car through Rentr, and the entire process was seamless from start to finish. The booking interface was user-friendly, offering a great selection of vehicles to choose from. Both pickup and drop-off were quick and hassle-free, and the car was in excellent condition. Overall, a fantastic experience—I highly recommend Rentr for stress-free rentals!</p>
                         <div className="flex justify-center">
@@ -57,7 +57,7 @@ const Testimonials = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="bg-white p-5 rounded-xl shadow-lg text-gray-500 space-y-3">
+                    <div className="bg-white dark:bg-gray-700 dark:text-gray-400 p-5 rounded-xl shadow-lg text-gray-500 space-y-3">
                         <FaQuoteLeft className="text-4xl text-primary" />
                         <p className="pl-8 text-justify overflow-y-scroll h-[15vh] text-xs pt-5">The website was very user-friendly, and the customer service team was responsive and helpful. However, the prices were a bit higher compared to other options. Still, the experience was worth it for the convenience and quality.</p>
                         <div className="flex justify-center">
@@ -67,7 +67,7 @@ const Testimonials = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="bg-white p-5 rounded-xl shadow-lg text-gray-500 space-y-3">
+                    <div className="bg-white dark:bg-gray-700 dark:text-gray-400 p-5 rounded-xl shadow-lg text-gray-500 space-y-3">
                         <FaQuoteLeft className="text-4xl text-primary" />
                         <p className="pl-8 text-justify overflow-y-scroll h-[15vh] text-xs pt-5">Booked a car for my weekend getaway, and it was perfect. The search filters made it easy to find the right vehicle, and the rental policies were clear and transparent. Definitely using this site again!</p>
                         <div className="flex justify-center">

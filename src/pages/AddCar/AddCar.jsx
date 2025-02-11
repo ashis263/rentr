@@ -85,19 +85,19 @@ const AddCar = () => {
                     <label className="label">
                         <span className={`label-text`}>Car Model</span>
                     </label>
-                    <input type="text" name="carModel" placeholder="Car Model" className="input max-lg:input-sm input-bordered" required />
+                    <input type="text" name="carModel" placeholder="Car Model" className="input max-lg:input-sm input-bordered dark:bg-gray-700" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className={`label-text`}>Daily Rental Price</span>
                     </label>
-                    <input type="number" name="dailyRentalPrice" placeholder="Daily Rental Price" className="input max-lg:input-sm input-bordered" required />
+                    <input type="number" name="dailyRentalPrice" placeholder="Daily Rental Price" className="input max-lg:input-sm input-bordered dark:bg-gray-700" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className={`label-text`}>Availablity</span>
                     </label>
-                    <select className={`max-sm:select-sm border rounded-xl p-2 border-gray-200`} name="availability" required>
+                    <select className={`max-sm:select-sm border rounded-xl p-2 border-gray-200 dark:bg-gray-700 dark:border-none`} name="availability" required>
                         <option></option>
                         <option value="true">Available</option>
                         <option value="false">Not Available</option>
@@ -107,31 +107,31 @@ const AddCar = () => {
                     <label className="label">
                         <span className={`label-text`}>Vehicle Registration Number</span>
                     </label>
-                    <input type="text" name="vehicleRegistrationNumber" placeholder="Vehicle Registration Number" className="input max-lg:input-sm input-bordered" required />
+                    <input type="text" name="vehicleRegistrationNumber" placeholder="Vehicle Registration Number" className="input max-lg:input-sm input-bordered dark:bg-gray-700" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className={`label-text`}>Features</span>
                     </label>
-                    <textarea name="features" placeholder="Please Add Fetures Using Comma" className="textarea max-lg:textarea-sm textarea-bordered" required />
+                    <textarea name="features" placeholder="Please Add Fetures Using Comma" className="textarea max-lg:textarea-sm textarea-bordered dark:bg-gray-700" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className={`label-text`}>Description</span>
                     </label>
-                    <textarea name="description" placeholder="Description" className="textarea max-lg:textarea-sm textarea-bordered" required />
+                    <textarea name="description" placeholder="Description" className="textarea max-lg:textarea-sm textarea-bordered dark:bg-gray-700" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className={`label-text`}>Booking Count</span>
                     </label>
-                    <input type="number" name="bookingCount" defaultValue={0} placeholder="Booking Count" className="input max-lg:input-sm input-bordered" required />
+                    <input type="number" name="bookingCount" defaultValue={0} placeholder="Booking Count" className="input max-lg:input-sm input-bordered dark:bg-gray-700" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className={`label-text`}>Location</span>
                     </label>
-                    <input type="text" name="location" placeholder="Location" className="input max-lg:input-sm input-bordered" required />
+                    <input type="text" name="location" placeholder="Location" className="input max-lg:input-sm input-bordered dark:bg-gray-700" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
@@ -147,7 +147,7 @@ const AddCar = () => {
                     </div>
                 </div>
                 <div className="form-control mt-6">
-                    <button className="btn max-lg:btn-sm className='btn bg-gradient-to-r from-gray-300 via-gray-500 to-gray-400 text-white border-none duration-1000 hover:bg-primary btn-sm' lg:text-xl">Add</button>
+                    <button className="btn max-lg:btn-sm className='btn bg-gradient-to-r from-[#01769a86] via-[#20758a] dark:to-[#01769a86] text-white border-none duration-1000 hover:bg-primary btn-sm' lg:text-xl">Add</button>
                 </div>
             </form>
             </HelmetProvider>

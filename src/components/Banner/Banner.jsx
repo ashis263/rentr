@@ -4,7 +4,7 @@ import { Typewriter } from 'react-simple-typewriter';
 const Banner = () => {
     return (
         <div className="pt-28 lg:pt-32 relative max-sm:mb-20">
-            <div className='bg-banner h-[35vh] sm:h-[55vh] lg:h-[70vh] bg-contain bg-no-repeat w-full sm:opacity-40'>
+            <div className='bg-banner h-[35vh] sm:h-[55vh] lg:h-[70vh] bg-contain bg-no-repeat w-full sm:opacity-40 sm:dark:opacity-20'>
             </div>
             <div className='w-full sm:w-11/12 mx-auto text-center'>
                 <div className='sm:absolute sm:top-36 lg:top-44 xl:top-52 space-y-2 lg:space-y-5 xl:left-72 max-sm:-mt-20'>
@@ -20,7 +20,7 @@ const Banner = () => {
                                 delaySpeed={2500}
                             />
                         </span> </h1>
-                    <p className='w-3/4  mx-auto text-gray-700 sm:text-lg lg:text-xl'>Rent your favourite car at a afforable price. Options available from economy to luxury for you to choose from.</p>
+                    <p className='w-3/4  mx-auto text-gray-700 dark:text-gray-300 sm:text-lg lg:text-xl'>Rent your favourite car at a afforable price. Options available from economy to luxury for you to choose from.</p>
                     <Link to='/cars' className="px-20 sm:px-40 py-2 sm:py-3 rounded-full btn border-none bg-gradient-to-r from-[#01769a86] via-[#20758a] drop-shadow-2xl shadow-xl text-[#ffffffee] to-[#20758a86]">View Available Cars</Link>
                 </div>
             </div>

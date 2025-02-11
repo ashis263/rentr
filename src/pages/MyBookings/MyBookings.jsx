@@ -42,7 +42,7 @@ const MyBookings = () => {
                     <table className="table">
                         {/* head */}
                         <thead>
-                            <tr className="font-bold bg-[#01959a42]">
+                            <tr className="font-bold bg-[#01959a42] dark:text-gray-50">
                                 <th className="max-sm:hidden text-center">Car image</th>
                                 <th>Car model</th>
                                 <th>Booking date</th>
