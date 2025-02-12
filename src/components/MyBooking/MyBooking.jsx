@@ -7,12 +7,15 @@ import Swal from 'sweetalert2';
 import Modal from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
 import moment from 'moment';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const MyBooking = ({ booking: current, index }) => {
     const [booking, setBooking] = useState(current);
     const [isModalOpened, SetIsModalOpened] = useState(false);
     const handleModal = () => SetIsModalOpened(!isModalOpened);
+    AOS.init();
     const date = new Date(booking.date);
     let formattedDate;
     if (/to/.test(booking.date)) {
@@ -92,7 +95,7 @@ const MyBooking = ({ booking: current, index }) => {
             })
     }
     return (
-        <tr className={`${index % 2 === 0 ? 'hover:bg-slate-200 dark:hover:bg-gray-400 text-center ' : 'hover:bg-slate-200 dark:hover:bg-gray-400 text-center bg-gray-100 dark:bg-gray-700'}`}>
+        <tr data-aos="fade-in" data-aos-duration="1000"  className={`${index % 2 === 0 ? 'hover:bg-slate-200 dark:hover:bg-gray-400 text-center ' : 'hover:bg-slate-200 dark:hover:bg-gray-400 text-center bg-gray-100 dark:bg-gray-700'}`}>
             <td className='flex justify-center max-sm:hidden'>
                 <div className="flex items-center gap-3">
                     <div className="avatar">

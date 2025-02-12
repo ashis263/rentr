@@ -16,8 +16,8 @@ const Car = ({ car }) => {
                 </div>
                 <div className=''>
                     <p className={`${availability === 'true' ? 'text-green-600' : 'text-red-600'} font-bold`}>{availability === 'true' ? 'Available' : 'Not Available'}</p>
-                    <p><span className='text-[#ac203cef]'>{dailyRentalPrice}$</span> /day</p>
-                    <p><span className='text-teal-900'>Added {difference} days ago</span></p>
+                    <p><span className='text-[#ac203cef] dark:text-white'>{dailyRentalPrice}$</span> /day</p>
+                    <p><span className='text-primary'>Added {difference} days ago</span></p>
                     <Link to={`/car/${_id}`} className="btn btn-wide px-10 my-5 btn-sm bg-gradient-to-r from-[#01769a86] via-[#20758a] dark:to-[#01769a86] text-white border-none duration-1000 hover:bg-primary text-xs">Book Now</Link>
                 </div>
             </div>

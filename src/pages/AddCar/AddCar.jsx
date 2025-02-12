@@ -74,13 +74,13 @@ const AddCar = () => {
             }
         });
     return (
-        <div className="animate__animated animate__fadeIn sm:w-2/3 mx-auto shadow-lg rounded-xl p-5">
+        <div className="animate__animated animate__fadeIn sm:w-11/12 mx-auto shadow-lg rounded-xl p-5">
             <HelmetProvider>
                 <Helmet>
                     <title>Rentr | Add Car</title>
                 </Helmet>
             <h1 className="text-4xl text-center sm:text-5xl lg:text-7xl sm:pt-0 font-bold text-primary">Add Car</h1>
-            <form onSubmit={handleFormSubmit} className="w-11/12 mx-auto">
+            <form onSubmit={handleFormSubmit} className="w-1/2 mb-10 mx-auto">
                 <div className="form-control">
                     <label className="label">
                         <span className={`label-text`}>Car Model</span>

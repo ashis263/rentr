@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 
 const Car = ({ car }) => {
+    AOS.init();
     const { _id, carImage, carModel, availability, dailyRentalPrice, description, features, location } = car;
     return (
-        <div className='flex flex-col shadow p-5 rounded-xl gap-5 items-center bg-white dark:bg-gray-700'>
+        <div  data-aos="fade-in" data-aos-duration="1000"  className='flex flex-col shadow p-5 rounded-xl gap-5 items-center bg-white dark:bg-gray-700'>
             <div className='flex flex-col items-center drop-shadow-2xl'>
                 <img className='w-80 rounded-xl mb-5' src={carImage} alt="" />
                 <div className='flex justify-between w-full'>

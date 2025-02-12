@@ -20,8 +20,8 @@ const ThemeToggler = () => {
     return (
         <div>
             <div className="dropdown">
-                <div tabIndex={0} role="button" className="btn my-1 px-0 btn-ghost hover:bg-transparent font-normal"><span className="flex">Theme<IoMdArrowDropdown /></span></div>
-                <ul tabIndex={0} className="dropdown-content menu bg-base-100 dark:bg-gray-500 rounded-box z-[1] w-24 p-2 shadow">
+                <div tabIndex={0} role="button" className="btn my-1 px-0 btn-ghost hover:bg-transparent font-normal"><span className="flex pt-[1px]">Theme<IoMdArrowDropdown /></span></div>
+                <ul tabIndex={0} className="dropdown-content menu bg-base-100 dark:bg-gray-700 rounded-box z-[1] w-24 p-2 shadow">
                     <li><button onClick={() => handleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light')}>System</button></li>
                     <li><button className={theme === 'dark' ? 'text-primary font-medium' : ''} onClick={() => handleTheme('dark')}>Dark</button></li>
                     <li><button className={theme === 'light' ? 'text-primary font-medium' : ''} onClick={() => handleTheme('light')}>Light</button></li>

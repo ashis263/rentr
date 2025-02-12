@@ -8,7 +8,7 @@ import { Autoplay } from "swiper/modules";
 
 const Testimonials = () => {
     return (
-        <div className="w-11/12 mx-auto my-5 mb-20 sm:my-8 lg:my-20 lg:mb-32">
+        <div  data-aos="fade-left" data-aos-duration="500"  className="w-11/12 mx-auto my-5 mb-20 sm:my-8 lg:my-20 lg:mb-32">
             <p className="text-center text-primary">Testimonials</p>
             <h4 className="text-center text-xl sm:2xl lg:text-4xl xl:5xl">What our clients say</h4>
             <Swiper

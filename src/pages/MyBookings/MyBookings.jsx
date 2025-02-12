@@ -15,12 +15,15 @@ import {
     ResponsiveContainer,
     Area
 } from "recharts";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const MyBookings = () => {
     const [myBookings, setMybookings] = useState([]);
     const { user } = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
     const [isDataLoaded, setIsDataLoaded] = useState(false);
+    AOS.init();
     useEffect((() => {
         axiosSecure.get(`/userBookings/?email=${user.email}`)
             .then(res => {
@@ -30,7 +33,7 @@ const MyBookings = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }), [])
     return (
-        <div className='animate__animated animate__fadeIn w-11/12 mx-auto rounded-xl'>
+        <div data-aos="fade-in" data-aos-duration="1000"  className='animate__animated animate__fadeIn w-11/12 mx-auto rounded-xl'>
             <HelmetProvider>
                 <Helmet>
                     <title>My Bookings</title>

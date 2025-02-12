@@ -9,8 +9,11 @@ import { Modal } from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
 import { useDropzone } from 'react-dropzone';
 import { TbDragDrop } from "react-icons/tb";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const UserCar = ({ car, index }) => {
+    AOS.init();
     const { myCars, setMyCars, isCarModified, setIsCarModified } = useContext(AuthContext);
     const [uploadedFile, setUploadedFile] = useState([]);
     const [isModalOpened, SetIsModalOpened] = useState(false);
@@ -110,7 +113,7 @@ const UserCar = ({ car, index }) => {
             })
     }
     return (
-        <tr className={`${index % 2 === 0 ? 'hover:bg-slate-200 dark:hover:bg-gray-400 text-center ' : 'hover:bg-slate-200 dark:hover:bg-gray-400 text-center bg-gray-100 dark:bg-gray-700'}`}>
+        <tr data-aos="fade-up" data-aos-duration="1000" className={`${index % 2 === 0 ? 'hover:bg-slate-200 dark:hover:bg-gray-400 text-center ' : 'hover:bg-slate-200 dark:hover:bg-gray-400 text-center bg-gray-100 dark:bg-gray-700'}`}>
             <td className='flex justify-center max-sm:hidden'>
                 <div className="flex items-center gap-3">
                     <div className="avatar">

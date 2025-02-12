@@ -1,11 +1,14 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import RecentCar from "../RecentCar/RecentCar";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const RecentListing = () => {
+    AOS.init();
     const { recent } = useContext(AuthContext);
     return (
-        <div className="mb-20 lg:mb-32">
+        <div  data-aos="fade-in" data-aos-duration="1000" className="mb-20 lg:mb-32">
             <p className="text-center text-primary">Recently added cars</p>
             <h4 className="drop-shadow-2xl font-semibold text-center text-xl sm:2xl lg:text-4xl xl:5xl">Recent Listing</h4>
             <div className="w-11/12 mx-auto grid gc-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 pt-5 sm:pt-10 sm:gap-5">
