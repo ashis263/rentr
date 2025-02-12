@@ -8,8 +8,10 @@ import AddCar from '../pages/AddCar/AddCar';
 import MyCars from '../pages/MyCars/MyCars';
 import AvailableCars from '../pages/AvailableCars/AvailableCars';
 import CarDetails from '../pages/CarDetails/CarDetails';
+import BlogDetails from '../pages/BlogDetails/BlogDetails';
 import MyBookings from '../pages/MyBookings/MyBookings';
 import ErrorPage from '../pages/Errorpage/ErrorPage';
+import Blogs from '../pages/Blogs/Blogs';
 
 const router = createBrowserRouter([
     {
@@ -49,6 +51,15 @@ const router = createBrowserRouter([
             {
                 path: '/myBookings',
                 element: <PrivateRoute><MyBookings></MyBookings></PrivateRoute>
+            },
+            {
+                path: 'blogs',
+                element: <Blogs></Blogs>
+            },
+            {
+                path: 'blog/:id',
+                element: <BlogDetails></BlogDetails>,
+                loader: ({ params }) => fetch(`https://rentr-server.vercel.app/blog/${params.id}`)
             }
         ])
     }

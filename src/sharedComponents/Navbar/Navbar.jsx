@@ -37,6 +37,7 @@ const Navbar = () => {
         <NavLink className={user ? "" : "hidden"} to="/addCar">Add Car</NavLink>
         <NavLink className={user ? "" : "hidden"} to="/myCars">My Cars</NavLink>
         <NavLink className={user ? "" : "hidden"} to="/myBookings">My Bookings</NavLink>
+        <NavLink className={user ? "" : ""} to="/blogs">Blogs</NavLink>
         <button className='max-lg:hidden' to="/myBookings"><ThemeToggler></ThemeToggler></button>
         <NavLink className={user ? "hidden log" : "log btn sm:btn-sm bg-primary border-none text-gray-50  hover:bg-primary btn-xs rounded"} to="/login">Log In</NavLink>
         <button onClick={handleLogout} className={user ? "btn sm:btn-sm bg-primary border-none text-gray-50  hover:bg-primary btn-xs rounded" : "hidden"} to="/">Logout</button>
