@@ -26,8 +26,8 @@ const MainLayout = () => {
         </div>
     }
     return (
-        <div className="max-w-screen-2xl mx-auto text-textPrimary bg-gray-50 dark:bg-gray-800 dark:text-gray-50 duration-1000">
-            <header>
+        <div className="overflow-x-hidden max-w-screen-2xl mx-auto text-textPrimary bg-gray-50 dark:bg-gray-800 dark:text-gray-50 duration-1000">
+            <header id="header">
                 <Navbar></Navbar>
             </header>
             <main className={location.pathname === '/' ? 'sm:pt-5 lg:pt-5' : "pt-20 sm:pt-24 lg:pt-28"}>

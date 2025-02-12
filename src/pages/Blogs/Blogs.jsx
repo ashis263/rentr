@@ -31,34 +31,22 @@ const Blogs = () => {
                             :
                             <div className="grid gc-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 pt-5 sm:pt-10 sm:gap-5">
                                 <div className='flex flex-col shadow p-5 rounded-xl gap-5 items-center bg-white dark:bg-gray-700'>
-                                    <div className="skeleton h-40 w-full dark:bg-gray-700"></div>
-                                    <div className="skeleton h-14 w-[calc(100%-10px)] dark:bg-gray-700"></div>
-                                    <div className="skeleton h-12 w-[calc(100%-10px)] dark:bg-gray-700 mt-8"></div>
+                                    <div className="skeleton h-36 w-full dark:bg-gray-700"></div>
                                 </div>
                                 <div className='flex flex-col shadow p-5 rounded-xl gap-5 items-center bg-white dark:bg-gray-700'>
-                                    <div className="skeleton h-40 w-full dark:bg-gray-700"></div>
-                                    <div className="skeleton h-14 w-[calc(100%-10px)] dark:bg-gray-700"></div>
-                                    <div className="skeleton h-12 w-[calc(100%-10px)] dark:bg-gray-700 mt-8"></div>
+                                    <div className="skeleton h-36 w-full dark:bg-gray-700"></div>
                                 </div>
                                 <div className='flex flex-col shadow p-5 rounded-xl gap-5 items-center bg-white dark:bg-gray-700'>
-                                    <div className="skeleton h-40 w-full dark:bg-gray-700"></div>
-                                    <div className="skeleton h-14 w-[calc(100%-10px)] dark:bg-gray-700"></div>
-                                    <div className="skeleton h-12 w-[calc(100%-10px)] dark:bg-gray-700 mt-8"></div>
+                                    <div className="skeleton h-36 w-full dark:bg-gray-700"></div>
                                 </div>
                                 <div className='flex flex-col shadow p-5 rounded-xl gap-5 items-center bg-white dark:bg-gray-700'>
-                                    <div className="skeleton h-40 w-full dark:bg-gray-700"></div>
-                                    <div className="skeleton h-14 w-[calc(100%-10px)] dark:bg-gray-700"></div>
-                                    <div className="skeleton h-12 w-[calc(100%-10px)] dark:bg-gray-700 mt-8"></div>
+                                    <div className="skeleton h-36 w-full dark:bg-gray-700"></div>
                                 </div>
                                 <div className='flex flex-col shadow p-5 rounded-xl gap-5 items-center bg-white dark:bg-gray-700'>
-                                    <div className="skeleton h-40 w-full dark:bg-gray-700"></div>
-                                    <div className="skeleton h-14 w-[calc(100%-10px)] dark:bg-gray-700"></div>
-                                    <div className="skeleton h-12 w-[calc(100%-10px)] dark:bg-gray-700 mt-8"></div>
+                                    <div className="skeleton h-36 w-full dark:bg-gray-700"></div>
                                 </div>
                                 <div className='flex flex-col shadow p-5 rounded-xl gap-5 items-center bg-white dark:bg-gray-700'>
-                                    <div className="skeleton h-40 w-full dark:bg-gray-700"></div>
-                                    <div className="skeleton h-14 w-[calc(100%-10px)] dark:bg-gray-700"></div>
-                                    <div className="skeleton h-12 w-[calc(100%-10px)] dark:bg-gray-700 mt-8"></div>
+                                    <div className="skeleton h-36 w-full dark:bg-gray-700"></div>
                                 </div>
                             </div>
                     }

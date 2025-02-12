@@ -1,4 +1,5 @@
 import Banner from "../../components/Banner/Banner";
+import PopularCars from "../../components/PopularCars/PopularCars";
 import RecentListing from "../../components/RecentListing/RecentListing";
 import SpecialOffers from "../../components/SpecialOffers/SpecialOffers";
 import Testimonials from "../../components/Testimonials/Testimonials";
@@ -15,6 +16,7 @@ const Home = () => {
                 </Helmet>
                 <Banner></Banner>
                 <WhyChoose></WhyChoose>
+                <PopularCars></PopularCars>
                 <RecentListing></RecentListing>
                 <SpecialOffers></SpecialOffers>
                 <Testimonials></Testimonials>

@@ -15,6 +15,7 @@ const AuthProvider = ({ children }) => {
     const [ cars, setCars ] = useState([]);
     const [ isCarModified, setIsCarModified ] = useState(false)
     const [recent, setRecent] = useState([]);
+    const [popular, setPopular] = useState([]);
 
     const auth = getAuth(app);
     const authData = {
@@ -28,7 +29,8 @@ const AuthProvider = ({ children }) => {
         isCarModified,
         setIsCarModified,
         recent,
-        cars
+        cars,
+        popular
     }
     
     useEffect(() => {
@@ -54,6 +56,8 @@ const AuthProvider = ({ children }) => {
         })
         axios.get('https://rentr-server.vercel.app/cars/recent')
             .then(res => setRecent(res.data))
+        axios.get('https://rentr-server.vercel.app/cars/popular')
+            .then(res => setPopular(res.data))
     }), [isCarModified])
     return (
         <div>
